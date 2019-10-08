@@ -36,6 +36,5 @@ module.exports = {
     "react/no-did-update-set-state": 0,
     "object-curly-newline": 0,
     "import/prefer-default-export": 0,
-    "no-throw-literal": 0,
   },
 };

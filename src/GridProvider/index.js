@@ -1,27 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import GridContext from './context';
 
-class GridProvider extends Component {
-  constructor() {
-    super();
-  }
+const GridProvider = (props) => {
+  const { numberOfColumns, gutterSize, children } = props;
 
-  render() {
-    const { numberOfColumns, gutterSize, children } = this.props;
-    
-    const contextObject = {
-      numberOfColumns,
-      gutterSize
-    };
+  const contextObject = {
+    numberOfColumns,
+    gutterSize,
+  };
 
-    return (
-      <GridContext.Provider value={contextObject}>
-        {children}
-      </GridContext.Provider>
-    );
-  }
-}
+  return (
+    <GridContext.Provider value={contextObject}>
+      {children}
+    </GridContext.Provider>
+  );
+};
+
+GridProvider.defaultProps = {
+  gutterSize: '0px',
+};
 
 GridProvider.propTypes = {
   children: PropTypes.oneOfType([
@@ -30,7 +28,7 @@ GridProvider.propTypes = {
       PropTypes.node,
     ),
   ]).isRequired,
-  numberOfColumns: PropTypes.number,
+  numberOfColumns: PropTypes.number.isRequired,
   gutterSize: PropTypes.oneOfType([
     PropTypes.oneOf([
       'columnWidth',
