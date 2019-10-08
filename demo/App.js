@@ -14,15 +14,15 @@ const App = () => {
           <Column span={4} style={{ backgroundColor: 'lightpink' }}>
             <Row>
               <Column span={2} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
-                <p>Nested Column</p>
+                <p>Nested Span 2</p>
               </Column>
               <Column span={2} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
-                <p>Nested Column</p>
+                <p>Nested Span 2</p>
               </Column>
             </Row>
           </Column>
           <Column span={10} style={{ backgroundColor: 'lightpink' }}>
-            <p>Column</p>
+            <p>Span 10</p>
           </Column>
         </Row>
       </div>
@@ -32,12 +32,12 @@ const App = () => {
           <Column span={8} style={{ backgroundColor: 'lightpink' }}>
             <Row>
               <Column span={4} startOn={5} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
-                <p>Nested Column</p>
+                <p>Nested Span 4, Start on 5</p>
               </Column>
             </Row>
           </Column>
           <Column span={6} style={{ backgroundColor: 'lightpink' }}>
-            <p>Column</p>
+            <p>Span 6</p>
           </Column>
         </Row>
       </div>

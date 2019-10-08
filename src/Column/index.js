@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import GridContext from '../GridProvider/context';
 import GridProvider from '../GridProvider';
 
+import StyledColumn from './css';
+
 const Column = (props) => {
   const {
     span,
@@ -12,35 +14,32 @@ const Column = (props) => {
     style,
   } = props;
 
+  const propsForStyler = {
+    startOn,
+    span,
+  };
+
   return (
     <GridContext.Consumer>
       {(gridContext) => {
-        const columnStyles = startOn
-          ? {
-            gridColumnStart: startOn,
-            gridColumnEnd: `span ${span}`,
-          }
-          : {
-            gridColumn: `span ${span}`,
-          };
-
         return (
           <GridProvider numberOfColumns={span} gutterSize={gridContext.gutterSize}>
-            <div
+            <StyledColumn
               className="column"
-              style={{
-                ...columnStyles,
-                ...style,
+              {...{
+                style,
+                propsForStyler,
               }}
             >
               {children}
-            </div>
+            </StyledColumn>
           </GridProvider>
         );
       }}
     </GridContext.Consumer>
   );
 };
+
 
 Column.defaultProps = {
   span: undefined,
