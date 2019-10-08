@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GridContext from '../GridProvider/context';
+import StyledRow from './css';
 
 const Row = (props) => {
   const { children } = props;
@@ -11,18 +12,15 @@ const Row = (props) => {
         const { numberOfColumns, gutterSize } = gridContext;
 
         return (
-          <div
+          <StyledRow
             className="row"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: `repeat(${numberOfColumns}, 1fr)`,
-              columnGap: gutterSize === 'columnWidth'
-                ? `calc(100% * ( 1 / (${numberOfColumns} * 2)))`
-                : gutterSize,
+            propsForStyler={{
+              numberOfColumns,
+              gutterSize,
             }}
           >
             {children}
-          </div>
+          </StyledRow>
         );
       }}
     </GridContext.Consumer>

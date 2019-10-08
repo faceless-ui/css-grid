@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import GridContext from '../GridProvider/context';
 import GridProvider from '../GridProvider';
-
 import StyledColumn from './css';
 
 const Column = (props) => {

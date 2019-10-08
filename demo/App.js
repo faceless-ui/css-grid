@@ -32,7 +32,7 @@ const App = () => {
           <Column span={8} style={{ backgroundColor: 'lightpink' }}>
             <Row>
               <Column span={4} startOn={5} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
-                <p>Nested Span 4, Start on 5</p>
+                <p>Start on 5</p>
               </Column>
             </Row>
           </Column>
