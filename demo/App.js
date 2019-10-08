@@ -29,14 +29,14 @@ const App = () => {
 
       <div style={{ marginBottom: '50px' }}>
         <Row>
-          <Column span={7} style={{ backgroundColor: 'lightpink' }}>
+          <Column span={8} style={{ backgroundColor: 'lightpink' }}>
             <Row>
-              <Column span={4} start={4} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
+              <Column span={4} startOn={5} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
                 <p>Nested Column</p>
               </Column>
             </Row>
           </Column>
-          <Column span={7} style={{ backgroundColor: 'lightpink' }}>
+          <Column span={6} style={{ backgroundColor: 'lightpink' }}>
             <p>Column</p>
           </Column>
         </Row>

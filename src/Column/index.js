@@ -5,17 +5,31 @@ import GridContext from '../GridProvider/context';
 import GridProvider from '../GridProvider';
 
 const Column = (props) => {
-  const { span, children, style } = props;
+  const {
+    span,
+    startOn,
+    children,
+    style,
+  } = props;
 
   return (
     <GridContext.Consumer>
       {(gridContext) => {
+        const columnStyles = startOn
+          ? {
+            gridColumnStart: startOn,
+            gridColumnEnd: `span ${span}`,
+          }
+          : {
+            gridColumn: `span ${span}`,
+          };
+
         return (
           <GridProvider numberOfColumns={span} gutterSize={gridContext.gutterSize}>
             <div
               className="column"
               style={{
-                gridColumn: `span ${span}`,
+                ...columnStyles,
                 ...style,
               }}
             >
@@ -31,10 +45,12 @@ const Column = (props) => {
 Column.defaultProps = {
   span: undefined,
   style: {},
+  startOn: undefined,
 };
 
 Column.propTypes = {
   span: PropTypes.number,
+  startOn: PropTypes.number,
   children: PropTypes.node.isRequired,
   style: PropTypes.shape({}),
 };
