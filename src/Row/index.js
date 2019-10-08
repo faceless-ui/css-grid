@@ -4,16 +4,23 @@ import GridContext from '../GridProvider/context';
 import StyledRow from './css';
 
 const Row = (props) => {
-  const { children } = props;
+  const {
+    children,
+    htmlElement,
+  } = props;
 
   return (
     <GridContext.Consumer>
       {(gridContext) => {
-        const { numberOfColumns, gutterSize } = gridContext;
+        const {
+          numberOfColumns,
+          gutterSize,
+        } = gridContext;
 
         return (
           <StyledRow
             className="row"
+            as={htmlElement}
             propsForStyler={{
               numberOfColumns,
               gutterSize,
@@ -28,7 +35,9 @@ const Row = (props) => {
 };
 
 
-Row.defaultProps = {};
+Row.defaultProps = {
+  htmlElement: 'div',
+};
 
 Row.propTypes = {
   children: PropTypes.oneOfType([
@@ -37,6 +46,13 @@ Row.propTypes = {
       PropTypes.node,
     ),
   ]).isRequired,
+  htmlElement: PropTypes.oneOf([
+    'div',
+    'nav',
+    'span',
+    'section',
+    'article',
+  ]),
 };
 
 export default Row;

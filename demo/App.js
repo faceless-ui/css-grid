@@ -36,8 +36,8 @@ const App = () => {
               </Column>
             </Row>
           </Column>
-          <Column span={6} style={{ backgroundColor: 'lightpink' }}>
-            <p>Span 6</p>
+          <Column span={6} htmlElement="section" style={{ backgroundColor: 'lightpink' }}>
+            <p>Span 6 as Section</p>
           </Column>
         </Row>
       </div>

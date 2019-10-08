@@ -10,6 +10,7 @@ const Column = (props) => {
     startOn,
     children,
     style,
+    htmlElement,
   } = props;
 
   const propsForStyler = {
@@ -24,6 +25,7 @@ const Column = (props) => {
           <GridProvider numberOfColumns={span} gutterSize={gridContext.gutterSize}>
             <StyledColumn
               className="column"
+              as={htmlElement}
               {...{
                 style,
                 propsForStyler,
@@ -43,6 +45,7 @@ Column.defaultProps = {
   span: undefined,
   style: {},
   startOn: undefined,
+  htmlElement: 'div',
 };
 
 Column.propTypes = {
@@ -50,6 +53,13 @@ Column.propTypes = {
   startOn: PropTypes.number,
   children: PropTypes.node.isRequired,
   style: PropTypes.shape({}),
+  htmlElement: PropTypes.oneOf([
+    'div',
+    'nav',
+    'span',
+    'section',
+    'article',
+  ]),
 };
 
 export default Column;
