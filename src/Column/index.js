@@ -6,6 +6,7 @@ import StyledColumn from './css';
 
 const Column = (props) => {
   const {
+    className,
     span,
     startOn,
     children,
@@ -18,13 +19,18 @@ const Column = (props) => {
     span,
   };
 
+  const classes = [
+    'column',
+    className,
+  ].filter(Boolean).join(' ');
+
   return (
     <GridContext.Consumer>
       {(gridContext) => {
         return (
           <GridProvider numberOfColumns={span} gutterSize={gridContext.gutterSize}>
             <StyledColumn
-              className="column"
+              className={classes}
               as={htmlElement}
               {...{
                 style,
@@ -42,6 +48,7 @@ const Column = (props) => {
 
 
 Column.defaultProps = {
+  className: '',
   span: undefined,
   style: {},
   startOn: undefined,
@@ -49,6 +56,7 @@ Column.defaultProps = {
 };
 
 Column.propTypes = {
+  className: PropTypes.string,
   span: PropTypes.number,
   startOn: PropTypes.number,
   children: PropTypes.node.isRequired,

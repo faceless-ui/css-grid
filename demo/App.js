@@ -10,8 +10,8 @@ const App = () => {
     <GridProvider numberOfColumns={14} gutterSize="10px">
 
       <div style={{ marginBottom: '50px' }}>
-        <Row>
-          <Column span={4} style={{ backgroundColor: 'lightpink' }}>
+        <Row className="custom-row-class">
+          <Column span={4} style={{ backgroundColor: 'lightpink' }} className="custom-column-class">
             <Row>
               <Column span={2} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
                 <p>Nested Span 2</p>

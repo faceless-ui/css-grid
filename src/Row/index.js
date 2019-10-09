@@ -5,9 +5,15 @@ import StyledRow from './css';
 
 const Row = (props) => {
   const {
+    className,
     children,
     htmlElement,
   } = props;
+
+  const classes = [
+    'row',
+    className,
+  ].filter(Boolean).join(' ');
 
   return (
     <GridContext.Consumer>
@@ -19,7 +25,7 @@ const Row = (props) => {
 
         return (
           <StyledRow
-            className="row"
+            className={classes}
             as={htmlElement}
             propsForStyler={{
               numberOfColumns,
@@ -36,10 +42,12 @@ const Row = (props) => {
 
 
 Row.defaultProps = {
+  className: '',
   htmlElement: 'div',
 };
 
 Row.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(
