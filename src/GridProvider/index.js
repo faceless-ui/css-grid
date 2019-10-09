@@ -3,22 +3,29 @@ import PropTypes from 'prop-types';
 import GridContext from './context';
 
 const GridProvider = (props) => {
-  const { numberOfColumns, gutterSize, children } = props;
-
-  const contextObject = {
+  const {
     numberOfColumns,
-    gutterSize,
+    columnGap,
+    rowGap,
+    children,
+  } = props;
+
+  const contextValue = {
+    numberOfColumns,
+    columnGap,
+    rowGap,
   };
 
   return (
-    <GridContext.Provider value={contextObject}>
+    <GridContext.Provider value={contextValue}>
       {children}
     </GridContext.Provider>
   );
 };
 
 GridProvider.defaultProps = {
-  gutterSize: '0px',
+  columnGap: '0px',
+  rowGap: '0px',
 };
 
 GridProvider.propTypes = {
@@ -29,12 +36,13 @@ GridProvider.propTypes = {
     ),
   ]).isRequired,
   numberOfColumns: PropTypes.number.isRequired,
-  gutterSize: PropTypes.oneOfType([
+  columnGap: PropTypes.oneOfType([
     PropTypes.oneOf([
       'columnWidth',
     ]),
     PropTypes.string,
   ]),
+  rowGap: PropTypes.string,
 };
 
 export default GridProvider;

@@ -20,7 +20,8 @@ const Row = (props) => {
       {(gridContext) => {
         const {
           numberOfColumns,
-          gutterSize,
+          columnGap,
+          rowGap,
         } = gridContext;
 
         return (
@@ -29,7 +30,8 @@ const Row = (props) => {
             as={htmlElement}
             propsForStyler={{
               numberOfColumns,
-              gutterSize,
+              columnGap,
+              rowGap,
             }}
           >
             {children}

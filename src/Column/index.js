@@ -27,8 +27,19 @@ const Column = (props) => {
   return (
     <GridContext.Consumer>
       {(gridContext) => {
+        const {
+          columnGap,
+          rowGap,
+        } = gridContext;
+
         return (
-          <GridProvider numberOfColumns={span} gutterSize={gridContext.gutterSize}>
+          <GridProvider
+            numberOfColumns={span}
+            {...{
+              columnGap,
+              rowGap,
+            }}
+          >
             <StyledColumn
               className={classes}
               as={htmlElement}

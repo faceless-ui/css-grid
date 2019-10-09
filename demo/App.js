@@ -7,7 +7,7 @@ import { Row, Column, GridProvider } from '../src';
 
 const App = () => {
   return (
-    <GridProvider numberOfColumns={14} gutterSize="10px">
+    <GridProvider numberOfColumns={14} columnGap="10px" rowGap="10px">
 
       <div style={{ marginBottom: '50px' }}>
         <Row className="custom-row-class">
@@ -38,6 +38,9 @@ const App = () => {
           </Column>
           <Column span={6} htmlElement="section" style={{ backgroundColor: 'lightpink' }}>
             <p>Span 6 as Section</p>
+          </Column>
+          <Column span={10} style={{ backgroundColor: 'lightpink' }}>
+            <p>Implicit column to show row gap</p>
           </Column>
         </Row>
       </div>
