@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 const StyledColumn = styled.div`
   ${(props) => {
-    const { span, startOn } = props.propsForStyler;
+    const { span, startOnHoriz, startOnVert } = props.propsForStyler;
     return (`
-      grid-column-start: ${startOn || `span ${span}`};
-      grid-column-end: ${startOn ? `span ${span}` : 'auto'};
+      grid-column-start: ${startOnHoriz || `span ${span}`};
+      grid-column-end: ${startOnHoriz ? `span ${span}` : 'auto'};
+      ${startOnVert ? `grid-row-start: ${startOnVert};` : ''}
     `);
   }}
 `;

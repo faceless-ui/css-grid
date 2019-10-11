@@ -31,8 +31,8 @@ const App = () => {
         <Row>
           <Column span={8} style={{ backgroundColor: 'lightpink' }}>
             <Row>
-              <Column span={4} startOn={5} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
-                <p>Start on 5</p>
+              <Column span={4} startOnHoriz={5} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
+                <p>Start on horizontal line 5</p>
               </Column>
             </Row>
           </Column>
@@ -41,6 +41,9 @@ const App = () => {
           </Column>
           <Column span={10} style={{ backgroundColor: 'lightpink' }}>
             <p>Implicit column to show row gap</p>
+          </Column>
+          <Column span={10} startOnVert={1} style={{ backgroundColor: 'lightpink' }}>
+            <p>Start on vertical line 1</p>
           </Column>
         </Row>
       </div>

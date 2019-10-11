@@ -8,14 +8,16 @@ const Column = (props) => {
   const {
     className,
     span,
-    startOn,
+    startOnVert,
+    startOnHoriz,
     children,
     style,
     htmlElement,
   } = props;
 
   const propsForStyler = {
-    startOn,
+    startOnHoriz,
+    startOnVert,
     span,
   };
 
@@ -62,14 +64,16 @@ Column.defaultProps = {
   className: '',
   span: undefined,
   style: {},
-  startOn: undefined,
+  startOnHoriz: undefined,
+  startOnVert: undefined,
   htmlElement: 'div',
 };
 
 Column.propTypes = {
   className: PropTypes.string,
   span: PropTypes.number,
-  startOn: PropTypes.number,
+  startOnHoriz: PropTypes.number,
+  startOnVert: PropTypes.number,
   children: PropTypes.node.isRequired,
   style: PropTypes.shape({}),
   htmlElement: PropTypes.oneOf([
