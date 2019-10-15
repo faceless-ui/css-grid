@@ -9,7 +9,7 @@ const GridProvider = (props) => {
     columnGap,
     rowGap,
     children,
-    renderGlobalCSS,
+    renderStyleSheet,
     breakpoints,
     scopeCSSTo,
   } = props;
@@ -22,7 +22,7 @@ const GridProvider = (props) => {
 
   return (
     <Fragment>
-      {renderGlobalCSS
+      {renderStyleSheet
         && <GlobalStyles {...{ numberOfColumns, columnGap, rowGap, breakpoints, scopeCSSTo }} />
       }
       <GridContext.Provider value={contextValue}>
@@ -42,7 +42,7 @@ GridProvider.defaultProps = {
     l: 992,
     xl: 1200,
   },
-  renderGlobalCSS: false,
+  renderStyleSheet: true,
   scopeCSSTo: '',
   minifyCSS: true,
 };
@@ -54,7 +54,7 @@ GridProvider.propTypes = {
       PropTypes.node,
     ),
   ]).isRequired,
-  renderGlobalCSS: PropTypes.bool,
+  renderStyleSheet: PropTypes.bool,
   numberOfColumns: PropTypes.number.isRequired,
   columnGap: PropTypes.oneOfType([
     PropTypes.oneOf([

@@ -54,6 +54,7 @@ const Column = (props) => {
         return (
           <GridProvider
             numberOfColumns={span}
+            renderStyleSheet={false}
             {...{
               columnGap,
               rowGap,

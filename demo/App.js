@@ -22,14 +22,12 @@ const App = () => {
           <p>xl: 1200</p>
           <p>column gutter: 10px</p>
           <p>row gutter: 10px</p>
-          <p>renderGlobalCSS: true</p>
           <p>scopeCSSTo: &ldquo;#grid-14-col-example&rdquo;</p>
         </code>
         <GridProvider
           numberOfColumns={14}
           columnGap="10px"
           rowGap="10px"
-          renderGlobalCSS
           breakpoints={{
             xs: 350,
             s: 576,
@@ -125,14 +123,12 @@ const App = () => {
           <p>xl: 1200</p>
           <p>column gutter: columnWidth</p>
           <p>row gutter: 10px</p>
-          <p>renderGlobalCSS: true</p>
           <p>scopeCSSTo: &ldquo;#grid-12-col-example&rdquo;</p>
         </code>
         <GridProvider
           numberOfColumns={12}
           columnGap="columnWidth"
           rowGap="10px"
-          renderGlobalCSS
           breakpoints={{
             xs: 350,
             s: 576,
