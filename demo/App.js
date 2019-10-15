@@ -180,11 +180,13 @@ const App = () => {
                 span={2}
                 spanM={3}
                 hStart={2}
+                hStartS={11}
                 style={{ backgroundColor: 'lightblue' }}
               >
                 <p>span: 2</p>
                 <p>spanM: 3</p>
                 <p>hStart: 2</p>
+                <p>hStartS: 11</p>
               </Column>
               <Column
                 span={2}
