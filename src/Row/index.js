@@ -1,41 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GridContext from '../GridProvider/context';
-import StyledRow from './css';
+
+const baseClass = 'trbl__row';
 
 const Row = (props) => {
   const {
     className,
     children,
-    htmlElement,
+    htmlElement: HtmlElement,
   } = props;
-
-  const classes = [
-    'row',
-    className,
-  ].filter(Boolean).join(' ');
 
   return (
     <GridContext.Consumer>
       {(gridContext) => {
-        const {
-          numberOfColumns,
-          columnGap,
-          rowGap,
-        } = gridContext;
+        const { numberOfColumns } = gridContext;
+
+        const classes = [
+          className,
+          baseClass,
+          `${baseClass}--hcount-${numberOfColumns}`,
+        ].filter(Boolean).join(' ');
 
         return (
-          <StyledRow
+          <HtmlElement
             className={classes}
-            as={htmlElement}
-            propsForStyler={{
-              numberOfColumns,
-              columnGap,
-              rowGap,
-            }}
           >
             {children}
-          </StyledRow>
+          </HtmlElement>
         );
       }}
     </GridContext.Consumer>

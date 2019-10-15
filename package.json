@@ -10,9 +10,11 @@
     "build": "webpack --config webpack.production.config.js"
   },
   "dependencies": {
+    "html-webpack-plugin": "^3.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.0",
+    "minify-css-string": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -26,7 +28,6 @@
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "html-webpack-plugin": "^3.2.0",
     "react-dom": "npm:@hot-loader/react-dom",
     "react-hot-loader": "^4.12.14",
     "styled-components": "^4.4.0",

@@ -2,27 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GridContext from '../GridProvider/context';
 import GridProvider from '../GridProvider';
-import StyledColumn from './css';
+
+const baseClass = 'trbl__column';
 
 const Column = (props) => {
   const {
     className,
     span,
-    startOnVert,
-    startOnHoriz,
+    vStart,
+    hStart,
     children,
     style,
-    htmlElement,
+    htmlElement: HtmlElement,
   } = props;
 
-  const propsForStyler = {
-    startOnHoriz,
-    startOnVert,
-    span,
-  };
-
   const classes = [
-    'column',
+    baseClass,
+    hStart && `${baseClass}--hstart ${baseClass}--hstart-${hStart}`,
+    vStart && `${baseClass}--vstart ${baseClass}--vstart-${vStart}`,
+    span && `${baseClass}--span-${span}`,
     className,
   ].filter(Boolean).join(' ');
 
@@ -42,16 +40,12 @@ const Column = (props) => {
               rowGap,
             }}
           >
-            <StyledColumn
+            <HtmlElement
               className={classes}
-              as={htmlElement}
-              {...{
-                style,
-                propsForStyler,
-              }}
+              {...{ style }}
             >
               {children}
-            </StyledColumn>
+            </HtmlElement>
           </GridProvider>
         );
       }}
@@ -64,16 +58,16 @@ Column.defaultProps = {
   className: '',
   span: undefined,
   style: {},
-  startOnHoriz: undefined,
-  startOnVert: undefined,
+  hStart: undefined,
+  vStart: undefined,
   htmlElement: 'div',
 };
 
 Column.propTypes = {
   className: PropTypes.string,
   span: PropTypes.number,
-  startOnHoriz: PropTypes.number,
-  startOnVert: PropTypes.number,
+  hStart: PropTypes.number,
+  vStart: PropTypes.number,
   children: PropTypes.node.isRequired,
   style: PropTypes.shape({}),
   htmlElement: PropTypes.oneOf([

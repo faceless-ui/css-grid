@@ -7,21 +7,39 @@ import { Row, Column, GridProvider } from '../src';
 
 const App = () => {
   return (
-    <GridProvider numberOfColumns={14} columnGap="10px" rowGap="10px">
+    <GridProvider
+      numberOfColumns={14}
+      columnGap="10px"
+      rowGap="10px"
+      renderGlobalCSS
+    >
 
       <div style={{ marginBottom: '50px' }}>
         <Row className="custom-row-class">
-          <Column span={4} style={{ backgroundColor: 'lightpink' }} className="custom-column-class">
+          <Column
+            span={4}
+            style={{ backgroundColor: 'lightpink' }}
+            className="custom-column-class"
+          >
             <Row>
-              <Column span={2} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
+              <Column
+                span={2}
+                style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+              >
                 <p>Nested Span 2</p>
               </Column>
-              <Column span={2} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
+              <Column
+                span={2}
+                style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+              >
                 <p>Nested Span 2</p>
               </Column>
             </Row>
           </Column>
-          <Column span={10} style={{ backgroundColor: 'lightpink' }}>
+          <Column
+            span={10}
+            style={{ backgroundColor: 'lightpink' }}
+          >
             <p>Span 10</p>
           </Column>
         </Row>
@@ -29,20 +47,38 @@ const App = () => {
 
       <div style={{ marginBottom: '50px' }}>
         <Row>
-          <Column span={8} style={{ backgroundColor: 'lightpink' }}>
+          <Column
+            span={8}
+            style={{ backgroundColor: 'lightpink' }}
+          >
             <Row>
-              <Column span={4} startOnHoriz={5} style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}>
+              <Column
+                span={4}
+                hStart={5}
+                style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+              >
                 <p>Start on horizontal line 5</p>
               </Column>
             </Row>
           </Column>
-          <Column span={6} htmlElement="section" style={{ backgroundColor: 'lightpink' }}>
+          <Column
+            span={6}
+            htmlElement="section"
+            style={{ backgroundColor: 'lightpink' }}
+          >
             <p>Span 6 as Section</p>
           </Column>
-          <Column span={10} style={{ backgroundColor: 'lightpink' }}>
+          <Column
+            span={10}
+            style={{ backgroundColor: 'lightpink' }}
+          >
             <p>Implicit column to show row gap</p>
           </Column>
-          <Column span={10} startOnVert={1} style={{ backgroundColor: 'lightpink' }}>
+          <Column
+            span={10}
+            vStart={1}
+            style={{ backgroundColor: 'lightpink' }}
+          >
             <p>Start on vertical line 1</p>
           </Column>
         </Row>

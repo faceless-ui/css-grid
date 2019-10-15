@@ -36,5 +36,6 @@ module.exports = {
     "react/no-did-update-set-state": 0,
     "object-curly-newline": 0,
     "import/prefer-default-export": 0,
+    "react/jsx-max-props-per-line": [1, { "maximum": 1 }],
   },
 };
