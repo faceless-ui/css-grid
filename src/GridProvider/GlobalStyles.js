@@ -12,15 +12,16 @@ const generateRowStyles = (numberOfColumns, columnGap, rowGap) => {
     }
   `;
 
-  // const gutter = columnGap === 'columnWidth'
-  //   ? `calc(100% * ( 1 / (${numberOfColumns} * 2)))`
-  //   : columnGap;
-
   columns.forEach((column, index) => {
     const hCount = index + 1;
+    const gutter = columnGap === 'columnWidth'
+      ? `calc(100% * ( 1 / (${hCount} * 2)))`
+      : columnGap;
+
     rowStyles += `
       .trbl__row--hcount-${hCount} {
         grid-template-columns: repeat(${hCount}, 1fr);
+        column-gap: ${gutter};
       }
     `;
   });
