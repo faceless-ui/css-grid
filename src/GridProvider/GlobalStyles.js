@@ -29,9 +29,6 @@ const generateRowStyles = (numberOfColumns, columnGap, rowGap) => {
   return minifyCssString(rowStyles);
 };
 
-// grid-template-columns: repeat(${numberOfColumns}, 1fr);
-// column-gap: ${gutter};
-
 const generateColumnStyles = (numberOfColumns) => {
   const columns = [...Array(numberOfColumns).keys()];
 

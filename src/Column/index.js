@@ -19,7 +19,6 @@ const Column = (props) => {
   const classes = [
     baseClass,
     hStart && `${baseClass}--hstart ${baseClass}--hstart-${hStart}`,
-    vStart && `${baseClass}--vstart ${baseClass}--vstart-${vStart}`,
     span && `${baseClass}--span-${span}`,
     className,
   ].filter(Boolean).join(' ');
@@ -42,7 +41,12 @@ const Column = (props) => {
           >
             <HtmlElement
               className={classes}
-              {...{ style }}
+              style={
+                {
+                  ...style,
+                  gridRowStart: vStart,
+                }
+              }
             >
               {children}
             </HtmlElement>
