@@ -193,12 +193,18 @@ const App = () => {
                 style={{ backgroundColor: 'lightblue' }}
               >
                 <Row>
-                  <Column span={2}>
-                    <p>nested column</p>
-                    <p>parent span: 2</p>
-                    <p>parent spanL: 3</p>
-                    <p>parent hStart: 6</p>
-                    <p>parent hStartM: 7</p>
+                  <Column
+                    span={2}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <Row>
+                      <Column
+                        span={1}
+                        style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                      >
+                        <p>test</p>
+                      </Column>
+                    </Row>
                   </Column>
                 </Row>
               </Column>
