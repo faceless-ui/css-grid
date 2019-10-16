@@ -13,6 +13,7 @@ const App = () => {
         style={{ border: '1px solid', padding: '10px', marginBottom: '10px' }}
       >
         <p><b>14 column grid example</b></p>
+        <p>To demonstrate a straightforward grid with nesting</p>
         <hr />
         <p>props:</p>
         <code>
@@ -114,6 +115,7 @@ const App = () => {
         style={{ border: '1px solid', padding: '10px' }}
       >
         <p><b>12 column grid with gutter equal to the column width:</b></p>
+        <p>To demonstrate a nested grid that behaves differently across screen sizes</p>
         <hr />
         <p>props:</p>
         <code>
@@ -171,7 +173,7 @@ const App = () => {
               </Column>
             </Row>
           </div>
-          <div style={{ border: '1px solid' }}>
+          <div style={{ border: '1px solid', marginBottom: '10px' }}>
             <Row>
               <Column
                 span={2}
@@ -207,6 +209,30 @@ const App = () => {
                     </Row>
                   </Column>
                 </Row>
+              </Column>
+            </Row>
+          </div>
+          <div style={{ border: '1px solid' }}>
+            <Row>
+              <Column
+                span={12}
+                vStart={2}
+                vStartM={1}
+                style={{ backgroundColor: 'lightblue' }}
+              >
+                <p>first in DOM</p>
+              </Column>
+              <Column
+                span={12}
+                style={{ backgroundColor: 'lightblue' }}
+              >
+                <p>second in DOM</p>
+              </Column>
+              <Column
+                span={12}
+                style={{ backgroundColor: 'lightblue' }}
+              >
+                <p>third in DOM</p>
               </Column>
             </Row>
           </div>
