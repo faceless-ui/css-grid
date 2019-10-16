@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GridContext from '../GridProvider/context';
 import GridProvider from '../GridProvider';
+import baseClass from './baseClass';
 
-const baseClass = 'trbl__column';
-
-const Column = (props) => {
+const Cell = (props) => {
   const {
     className,
     span,
@@ -20,12 +19,6 @@ const Column = (props) => {
     hStartM,
     hStartL,
     hStartXL,
-    vStart,
-    vStartXS,
-    vStartS,
-    vStartM,
-    vStartL,
-    vStartXL,
     children,
     style,
     htmlElement: HtmlElement,
@@ -46,13 +39,6 @@ const Column = (props) => {
     hStartM && `${baseClass}--hstart-m-${hStartM}`,
     hStartL && `${baseClass}--hstart-l-${hStartL}`,
     hStartXL && `${baseClass}--hstart-xl-${hStartXL}`,
-    (vStart || vStartXS || vStartS || vStartM || vStartL || vStartXL) && `${baseClass}--vstart`,
-    vStart && `${baseClass}--vstart-${vStart}`,
-    vStartXS && `${baseClass}--vstart-xs-${vStartXS}`,
-    vStartS && `${baseClass}--vstart-s-${vStartS}`,
-    vStartM && `${baseClass}--vstart-m-${vStartM}`,
-    vStartL && `${baseClass}--vstart-l-${vStartL}`,
-    vStartXL && `${baseClass}--vstart-xl-${vStartXL}`,
     className,
   ].filter(Boolean).join(' ');
 
@@ -84,7 +70,7 @@ const Column = (props) => {
           >
             <HtmlElement
               className={classes}
-              style={{ ...style, gridRowStart: vStart }}
+              style={{ ...style }}
             >
               {children}
             </HtmlElement>
@@ -96,7 +82,7 @@ const Column = (props) => {
 };
 
 
-Column.defaultProps = {
+Cell.defaultProps = {
   className: '',
   span: undefined,
   spanXS: undefined,
@@ -110,17 +96,11 @@ Column.defaultProps = {
   hStartM: undefined,
   hStartL: undefined,
   hStartXL: undefined,
-  vStart: undefined,
-  vStartXS: undefined,
-  vStartS: undefined,
-  vStartM: undefined,
-  vStartL: undefined,
-  vStartXL: undefined,
   style: {},
   htmlElement: 'div',
 };
 
-Column.propTypes = {
+Cell.propTypes = {
   className: PropTypes.string,
   span: PropTypes.number,
   spanXS: PropTypes.number,
@@ -134,12 +114,6 @@ Column.propTypes = {
   hStartM: PropTypes.number,
   hStartL: PropTypes.number,
   hStartXL: PropTypes.number,
-  vStart: PropTypes.number,
-  vStartXS: PropTypes.number,
-  vStartS: PropTypes.number,
-  vStartM: PropTypes.number,
-  vStartL: PropTypes.number,
-  vStartXL: PropTypes.number,
   children: PropTypes.node.isRequired,
   style: PropTypes.shape({}),
   htmlElement: PropTypes.oneOf([
@@ -151,4 +125,4 @@ Column.propTypes = {
   ]),
 };
 
-export default Column;
+export default Cell;

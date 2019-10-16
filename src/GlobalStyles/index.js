@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import minifyCssString from 'minify-css-string';
-import generateRowStyles from './generateRowStyles';
-import generateColumnStyles from './generateColumnStyles';
+import generateGridStyles from './generateGridStyles';
+import generateCellStyles from './generateCellStyles';
 
 const GlobalStyles = (props) => {
   const {
@@ -14,8 +14,8 @@ const GlobalStyles = (props) => {
     minifyCSS,
   } = props;
 
-  const rowStyles = generateRowStyles(hCount, columnGap, rowGap, breakpoints, scopeCSSTo);
-  const columnStyles = generateColumnStyles(hCount, breakpoints, scopeCSSTo);
+  const rowStyles = generateGridStyles(hCount, columnGap, rowGap, breakpoints, scopeCSSTo);
+  const columnStyles = generateCellStyles(hCount, breakpoints, scopeCSSTo);
   const styles = rowStyles.concat(columnStyles);
 
   return (

@@ -15,19 +15,19 @@ const GridProvider = (props) => {
     scopeCSSTo,
   } = props;
 
-  const contextValue = {
-    hCount,
-    hCountOverrides,
-    columnGap,
-    rowGap,
-  };
-
   return (
     <Fragment>
       {renderStyleSheet
         && <GlobalStyles {...{ hCount, columnGap, rowGap, breakpoints, scopeCSSTo }} />
       }
-      <GridContext.Provider value={contextValue}>
+      <GridContext.Provider
+        value={{
+          hCount,
+          hCountOverrides,
+          columnGap,
+          rowGap,
+        }}
+      >
         {children}
       </GridContext.Provider>
     </Fragment>

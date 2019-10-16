@@ -1,12 +1,13 @@
 import scopeCSSToSelector from './scopeCSSToSelector';
+import baseClass from '../Cell/baseClass';
 
 const formatColumnCSS = (index, breakpointName) => {
   const hCount = index + 1;
-  const spanClassName = `.trbl__column--span-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
-  const hStartClassName = `.trbl__column--hstart-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
+  const spanClassName = `.${baseClass}--span-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
+  const hStartClassName = `.${baseClass}--hstart-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
 
   return (`
-    ${spanClassName}:not(.trbl__column--hstart) {
+    ${spanClassName}:not(.${baseClass}--hstart) {
       grid-column-start: span ${hCount};
     }
 
@@ -14,13 +15,13 @@ const formatColumnCSS = (index, breakpointName) => {
       grid-column-start: ${hCount};
     }
 
-    .trbl__column--hstart${spanClassName} {
+    .${baseClass}--hstart${spanClassName} {
       grid-column-end: span ${hCount};
     }`
   );
 };
 
-const generateColumnStyles = (hCount, breakpoints, scopeTo) => {
+const generateCellStyles = (hCount, breakpoints, scopeTo) => {
   const hCols = [...Array(hCount).keys()];
   const breakpointKeys = Object.keys(breakpoints).reverse(); // reverse for specificity
   let columnStyles = '';
@@ -40,4 +41,4 @@ const generateColumnStyles = (hCount, breakpoints, scopeTo) => {
   return columnStyles;
 };
 
-export default generateColumnStyles;
+export default generateCellStyles;

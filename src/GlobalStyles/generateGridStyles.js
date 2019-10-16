@@ -1,8 +1,9 @@
 import scopeCSSToSelector from './scopeCSSToSelector';
+import baseClass from '../Grid/baseClass';
 
 const formatRowCSS = (index, columnGap, breakpointName) => {
   const hCount = index + 1;
-  const className = `.trbl__row--hcount-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
+  const className = `.${baseClass}--hcount-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
 
   const gutter = columnGap === 'columnWidth'
     ? `calc(100% * ( 1 / (${index + 1} * 2)))`
@@ -16,13 +17,13 @@ const formatRowCSS = (index, columnGap, breakpointName) => {
   );
 };
 
-const generateRowStyles = (hCount, columnGap, rowGap, breakpoints, scopeCSSTo) => {
+const generateGridStyles = (hCount, columnGap, rowGap, breakpoints, scopeCSSTo) => {
   const hCols = [...Array(hCount).keys()];
   const breakpointKeys = Object.keys(breakpoints).reverse(); // reverse for specificity
   let rowStyles = '';
 
   rowStyles += scopeCSSToSelector(scopeCSSTo, `
-    .trbl__row {
+    .${baseClass} {
       display: grid;
       ${rowGap ? `row-gap: ${rowGap}` : null};
     }`);
@@ -42,4 +43,4 @@ const generateRowStyles = (hCount, columnGap, rowGap, breakpoints, scopeCSSTo) =
   return rowStyles;
 };
 
-export default generateRowStyles;
+export default generateGridStyles;

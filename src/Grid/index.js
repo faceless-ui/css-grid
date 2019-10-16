@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GridContext from '../GridProvider/context';
+import baseClass from './baseClass';
 
-const baseClass = 'trbl__row';
-
-const Row = (props) => {
+const Grid = (props) => {
   const {
     className,
     children,
+    style,
     htmlElement: HtmlElement,
   } = props;
 
@@ -35,6 +35,7 @@ const Row = (props) => {
         return (
           <HtmlElement
             className={classes}
+            style={{ ...style }}
           >
             {children}
           </HtmlElement>
@@ -45,12 +46,13 @@ const Row = (props) => {
 };
 
 
-Row.defaultProps = {
+Grid.defaultProps = {
   className: '',
+  style: {},
   htmlElement: 'div',
 };
 
-Row.propTypes = {
+Grid.propTypes = {
   className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.node,
@@ -58,6 +60,7 @@ Row.propTypes = {
       PropTypes.node,
     ),
   ]).isRequired,
+  style: PropTypes.shape({}),
   htmlElement: PropTypes.oneOf([
     'div',
     'nav',
@@ -67,4 +70,4 @@ Row.propTypes = {
   ]),
 };
 
-export default Row;
+export default Grid;
