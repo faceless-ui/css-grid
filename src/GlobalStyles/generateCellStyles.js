@@ -3,7 +3,7 @@ import baseClass from '../Cell/baseClass';
 
 const formatColumnCSS = (index, breakpointName) => {
   const hCount = index + 1;
-  const spanClassName = `.${baseClass}--span-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
+  const spanClassName = `.${baseClass}--hspan-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
   const hStartClassName = `.${baseClass}--hstart-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
 
   return (`

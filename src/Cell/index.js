@@ -7,12 +7,12 @@ import baseClass from './baseClass';
 const Cell = (props) => {
   const {
     className,
-    span,
-    spanXS,
-    spanS,
-    spanM,
-    spanL,
-    spanXL,
+    hSpan,
+    hSpanXS,
+    hSpanS,
+    hSpanM,
+    hSpanL,
+    hSpanXL,
     hStart,
     hStartXS,
     hStartS,
@@ -26,12 +26,12 @@ const Cell = (props) => {
 
   const classes = [
     baseClass,
-    span && `${baseClass}--span-${span}`,
-    spanXS && `${baseClass}--span-xs-${spanXS}`,
-    spanS && `${baseClass}--span-s-${spanS}`,
-    spanM && `${baseClass}--span-m-${spanM}`,
-    spanL && `${baseClass}--span-l-${spanL}`,
-    spanXL && `${baseClass}--span-xl-${spanXL}`,
+    hSpan && `${baseClass}--hspan-${hSpan}`,
+    hSpanXS && `${baseClass}--hspan-xs-${hSpanXS}`,
+    hSpanS && `${baseClass}--hspan-s-${hSpanS}`,
+    hSpanM && `${baseClass}--hspan-m-${hSpanM}`,
+    hSpanL && `${baseClass}--hspan-l-${hSpanL}`,
+    hSpanXL && `${baseClass}--hspan-xl-${hSpanXL}`,
     (hStart || hStartXS || hStartS || hStartM || hStartL || hStartXL) && `${baseClass}--hstart`,
     hStart && `${baseClass}--hstart-${hStart}`,
     hStartXS && `${baseClass}--hstart-xs-${hStartXS}`,
@@ -43,11 +43,11 @@ const Cell = (props) => {
   ].filter(Boolean).join(' ');
 
   const hCountOverrides = {
-    xs: spanXS,
-    s: spanS,
-    m: spanM,
-    l: spanL,
-    xl: spanXL,
+    xs: hSpanXS,
+    s: hSpanS,
+    m: hSpanM,
+    l: hSpanL,
+    xl: hSpanXL,
   };
 
   return (
@@ -60,7 +60,7 @@ const Cell = (props) => {
 
         return (
           <GridProvider
-            hCount={span}
+            hCount={hSpan}
             renderStyleSheet={false}
             {...{
               columnGap,
@@ -84,12 +84,12 @@ const Cell = (props) => {
 
 Cell.defaultProps = {
   className: '',
-  span: undefined,
-  spanXS: undefined,
-  spanS: undefined,
-  spanM: undefined,
-  spanL: undefined,
-  spanXL: undefined,
+  hSpan: undefined,
+  hSpanXS: undefined,
+  hSpanS: undefined,
+  hSpanM: undefined,
+  hSpanL: undefined,
+  hSpanXL: undefined,
   hStart: undefined,
   hStartXS: undefined,
   hStartS: undefined,
@@ -102,12 +102,12 @@ Cell.defaultProps = {
 
 Cell.propTypes = {
   className: PropTypes.string,
-  span: PropTypes.number,
-  spanXS: PropTypes.number,
-  spanS: PropTypes.number,
-  spanM: PropTypes.number,
-  spanL: PropTypes.number,
-  spanXL: PropTypes.number,
+  hSpan: PropTypes.number,
+  hSpanXS: PropTypes.number,
+  hSpanS: PropTypes.number,
+  hSpanM: PropTypes.number,
+  hSpanL: PropTypes.number,
+  hSpanXL: PropTypes.number,
   hStart: PropTypes.number,
   hStartXS: PropTypes.number,
   hStartS: PropTypes.number,

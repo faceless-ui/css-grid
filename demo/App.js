@@ -3,7 +3,7 @@ import { Grid, Cell, GridProvider } from '../src';
 
 // Testing may include:
 // - Changing the `gutterSize` from "columnWidth" to a static dimension, i.e. 10px
-// - Changing the hCount to various integers and adjusting the `span` props as necessary
+// - Changing the hCount to various integers and adjusting the `hSpan` props as necessary
 
 const App = () => {
   return (
@@ -41,30 +41,30 @@ const App = () => {
           <div style={{ marginBottom: '10px', border: '1px solid' }}>
             <Grid className="custom-grid-class">
               <Cell
-                span={4}
+                hSpan={4}
                 style={{ backgroundColor: 'lightpink' }}
                 className="custom-cell-class"
               >
                 <Grid>
                   <Cell
-                    span={2}
+                    hSpan={2}
                     style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
                   >
-                    <p>Nested Span 2</p>
+                    <p>Nested hSpan 2</p>
                   </Cell>
                   <Cell
-                    span={2}
+                    hSpan={2}
                     style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
                   >
-                    <p>Nested Span 2</p>
+                    <p>Nested hSpan 2</p>
                   </Cell>
                 </Grid>
               </Cell>
               <Cell
-                span={10}
+                hSpan={10}
                 style={{ backgroundColor: 'lightpink' }}
               >
-                <p>Span 10</p>
+                <p>hSpan 10</p>
               </Cell>
             </Grid>
           </div>
@@ -72,12 +72,12 @@ const App = () => {
           <div style={{ border: '1px solid' }}>
             <Grid>
               <Cell
-                span={8}
+                hSpan={8}
                 style={{ backgroundColor: 'lightpink' }}
               >
                 <Grid>
                   <Cell
-                    span={4}
+                    hSpan={4}
                     hStart={4}
                     style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
                   >
@@ -86,20 +86,20 @@ const App = () => {
                 </Grid>
               </Cell>
               <Cell
-                span={6}
+                hSpan={6}
                 htmlElement="section"
                 style={{ backgroundColor: 'lightpink' }}
               >
-                <p>Span 6 as Section</p>
+                <p>hSpan 6 as Section</p>
               </Cell>
               <Cell
-                span={10}
+                hSpan={10}
                 style={{ backgroundColor: 'lightpink' }}
               >
                 <p>Implicit column to show row gap</p>
               </Cell>
               <Cell
-                span={10}
+                hSpan={10}
                 style={{ backgroundColor: 'lightpink' }}
               >
                 <p>Start on vertical line 1</p>
@@ -143,64 +143,64 @@ const App = () => {
           <div style={{ border: '1px solid', marginBottom: '10px' }}>
             <Grid>
               <Cell
-                span={6}
-                spanL={5}
-                spanM={4}
-                spanS={3}
-                spanXS={2}
+                hSpan={6}
+                hSpanL={5}
+                hSpanM={4}
+                hSpanS={3}
+                hSpanXS={2}
                 style={{ backgroundColor: 'lightblue' }}
               >
-                <p>span: 6</p>
-                <p>spanL: 5</p>
-                <p>spanM: 4</p>
-                <p>spanS: 3</p>
-                <p>spanXS: 2</p>
+                <p>hSpan: 6</p>
+                <p>hSpanL: 5</p>
+                <p>hSpanM: 4</p>
+                <p>hSpanS: 3</p>
+                <p>hSpanXS: 2</p>
               </Cell>
               <Cell
-                span={6}
-                spanL={5}
-                spanM={4}
-                spanS={3}
-                spanXS={2}
+                hSpan={6}
+                hSpanL={5}
+                hSpanM={4}
+                hSpanS={3}
+                hSpanXS={2}
                 style={{ backgroundColor: 'lightblue' }}
               >
-                <p>span: 6</p>
-                <p>spanL: 5</p>
-                <p>spanM: 4</p>
-                <p>spanS: 3</p>
-                <p>spanXS: 2</p>
+                <p>hSpan: 6</p>
+                <p>hSpanL: 5</p>
+                <p>hSpanM: 4</p>
+                <p>hSpanS: 3</p>
+                <p>hSpanXS: 2</p>
               </Cell>
             </Grid>
           </div>
           <div style={{ border: '1px solid', marginBottom: '10px' }}>
             <Grid>
               <Cell
-                span={2}
-                spanM={3}
+                hSpan={2}
+                hSpanM={3}
                 hStart={2}
                 hStartS={11}
                 style={{ backgroundColor: 'lightblue' }}
               >
-                <p>span: 2</p>
-                <p>spanM: 3</p>
+                <p>hSpan: 2</p>
+                <p>hSpanM: 3</p>
                 <p>hStart: 2</p>
                 <p>hStartS: 11</p>
               </Cell>
               <Cell
-                span={2}
-                spanL={3}
+                hSpan={2}
+                hSpanL={3}
                 hStart={6}
                 hStartM={7}
                 style={{ backgroundColor: 'lightblue' }}
               >
                 <Grid>
                   <Cell
-                    span={2}
+                    hSpan={2}
                     style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
                   >
                     <Grid>
                       <Cell
-                        span={1}
+                        hSpan={1}
                         style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
                       >
                         <p>test</p>
@@ -214,19 +214,19 @@ const App = () => {
           <div style={{ border: '1px solid' }}>
             <Grid>
               <Cell
-                span={12}
+                hSpan={12}
                 style={{ backgroundColor: 'lightblue' }}
               >
                 <p>first in DOM</p>
               </Cell>
               <Cell
-                span={12}
+                hSpan={12}
                 style={{ backgroundColor: 'lightblue' }}
               >
                 <p>second in DOM</p>
               </Cell>
               <Cell
-                span={12}
+                hSpan={12}
                 style={{ backgroundColor: 'lightblue' }}
               >
                 <p>third in DOM</p>
