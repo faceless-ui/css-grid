@@ -14,12 +14,22 @@ const Row = (props) => {
   return (
     <GridContext.Consumer>
       {(gridContext) => {
-        const { numberOfColumns } = gridContext;
+        const {
+          hCount,
+          hCountOverrides: {
+            xs, s, m, l, xl,
+          } = {},
+        } = gridContext;
 
         const classes = [
           className,
           baseClass,
-          `${baseClass}--hcount-${numberOfColumns}`,
+          `${baseClass}--hcount-${hCount}`,
+          xs && `${baseClass}--hcount-xs-${xs}`,
+          s && `${baseClass}--hcount-s-${s}`,
+          m && `${baseClass}--hcount-m-${m}`,
+          l && `${baseClass}--hcount-l-${l}`,
+          xl && `${baseClass}--hcount-xl-${xl}`,
         ].filter(Boolean).join(' ');
 
         return (

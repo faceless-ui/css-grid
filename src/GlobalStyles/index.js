@@ -6,7 +6,7 @@ import generateColumnStyles from './generateColumnStyles';
 
 const GlobalStyles = (props) => {
   const {
-    numberOfColumns,
+    hCount,
     columnGap,
     rowGap,
     breakpoints,
@@ -14,8 +14,8 @@ const GlobalStyles = (props) => {
     minifyCSS,
   } = props;
 
-  const rowStyles = generateRowStyles(numberOfColumns, columnGap, rowGap, scopeCSSTo);
-  const columnStyles = generateColumnStyles(numberOfColumns, breakpoints, scopeCSSTo);
+  const rowStyles = generateRowStyles(hCount, columnGap, rowGap, breakpoints, scopeCSSTo);
+  const columnStyles = generateColumnStyles(hCount, breakpoints, scopeCSSTo);
   const styles = rowStyles.concat(columnStyles);
 
   return (
@@ -38,7 +38,7 @@ GlobalStyles.defaultProps = {
 };
 
 GlobalStyles.propTypes = {
-  numberOfColumns: PropTypes.number.isRequired,
+  hCount: PropTypes.number.isRequired,
   columnGap: PropTypes.string,
   rowGap: PropTypes.string,
   breakpoints: PropTypes.shape({

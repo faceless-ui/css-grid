@@ -43,6 +43,14 @@ const Column = (props) => {
     className,
   ].filter(Boolean).join(' ');
 
+  const hCountOverrides = {
+    xs: spanXS,
+    s: spanS,
+    m: spanM,
+    l: spanL,
+    xl: spanXL,
+  };
+
   return (
     <GridContext.Consumer>
       {(gridContext) => {
@@ -53,11 +61,12 @@ const Column = (props) => {
 
         return (
           <GridProvider
-            numberOfColumns={span}
+            hCount={span}
             renderStyleSheet={false}
             {...{
               columnGap,
               rowGap,
+              hCountOverrides,
             }}
           >
             <HtmlElement

@@ -5,7 +5,8 @@ import GlobalStyles from '../GlobalStyles';
 
 const GridProvider = (props) => {
   const {
-    numberOfColumns,
+    hCount,
+    hCountOverrides,
     columnGap,
     rowGap,
     children,
@@ -15,7 +16,8 @@ const GridProvider = (props) => {
   } = props;
 
   const contextValue = {
-    numberOfColumns,
+    hCount,
+    hCountOverrides,
     columnGap,
     rowGap,
   };
@@ -23,7 +25,7 @@ const GridProvider = (props) => {
   return (
     <Fragment>
       {renderStyleSheet
-        && <GlobalStyles {...{ numberOfColumns, columnGap, rowGap, breakpoints, scopeCSSTo }} />
+        && <GlobalStyles {...{ hCount, columnGap, rowGap, breakpoints, scopeCSSTo }} />
       }
       <GridContext.Provider value={contextValue}>
         {children}
@@ -45,6 +47,7 @@ GridProvider.defaultProps = {
   renderStyleSheet: true,
   scopeCSSTo: '',
   minifyCSS: true,
+  hCountOverrides: undefined,
 };
 
 GridProvider.propTypes = {
@@ -55,7 +58,14 @@ GridProvider.propTypes = {
     ),
   ]).isRequired,
   renderStyleSheet: PropTypes.bool,
-  numberOfColumns: PropTypes.number.isRequired,
+  hCount: PropTypes.number.isRequired,
+  hCountOverrides: PropTypes.shape({
+    xs: PropTypes.number,
+    s: PropTypes.number,
+    m: PropTypes.number,
+    l: PropTypes.number,
+    xl: PropTypes.number,
+  }),
   columnGap: PropTypes.oneOfType([
     PropTypes.oneOf([
       'columnWidth',

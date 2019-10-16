@@ -3,7 +3,7 @@ import { Row, Column, GridProvider } from '../src';
 
 // Testing may include:
 // - Changing the `gutterSize` from "columnWidth" to a static dimension, i.e. 10px
-// - Changing the numberOfColumns to various integers and adjusting the `span` props as necessary
+// - Changing the hCount to various integers and adjusting the `span` props as necessary
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
           <p>scopeCSSTo: &ldquo;#grid-14-col-example&rdquo;</p>
         </code>
         <GridProvider
-          numberOfColumns={14}
+          hCount={14}
           columnGap="10px"
           rowGap="10px"
           breakpoints={{
@@ -126,7 +126,7 @@ const App = () => {
           <p>scopeCSSTo: &ldquo;#grid-12-col-example&rdquo;</p>
         </code>
         <GridProvider
-          numberOfColumns={12}
+          hCount={12}
           columnGap="columnWidth"
           rowGap="10px"
           breakpoints={{
@@ -136,6 +136,7 @@ const App = () => {
             l: 992,
             xl: 1200,
           }}
+          minifyCSS={false}
           scopeCSSTo="#grid-12-col-example"
         >
           <div style={{ border: '1px solid', marginBottom: '10px' }}>
@@ -191,10 +192,15 @@ const App = () => {
                 hStartM={7}
                 style={{ backgroundColor: 'lightblue' }}
               >
-                <p>span: 2</p>
-                <p>spanL: 3</p>
-                <p>hStart: 6</p>
-                <p>hStartM: 7</p>
+                <Row>
+                  <Column span={2}>
+                    <p>nested column</p>
+                    <p>parent span: 2</p>
+                    <p>parent spanL: 3</p>
+                    <p>parent hStart: 6</p>
+                    <p>parent hStartM: 7</p>
+                  </Column>
+                </Row>
               </Column>
             </Row>
           </div>

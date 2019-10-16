@@ -1,13 +1,13 @@
 import scopeCSSToSelector from './scopeCSSToSelector';
 
 
-const generateColumnStyles = (numberOfColumns, breakpoints, scopeTo) => {
-  const columns = [...Array(numberOfColumns).keys()];
+const generateColumnStyles = (hCount, breakpoints, scopeTo) => {
+  const hCols = [...Array(hCount).keys()];
   const breakpointKeys = Object.keys(breakpoints).reverse(); // reverse for specificity
 
   let columnStyles = '';
 
-  columns.forEach((column, index) => {
+  hCols.forEach((hCol, index) => {
     columnStyles += scopeCSSToSelector(scopeTo, `
       .trbl__column--span-${index + 1}:not(.trbl__column--hstart) {
         grid-column-start: span ${index + 1};
@@ -26,7 +26,7 @@ const generateColumnStyles = (numberOfColumns, breakpoints, scopeTo) => {
   breakpointKeys.forEach((breakpointName) => {
     columnStyles += `
       @media (max-width: ${breakpoints[breakpointName]}px) {
-        ${columns.map((column, index) => scopeCSSToSelector(scopeTo, `
+        ${hCols.map((hCol, index) => scopeCSSToSelector(scopeTo, `
           .trbl__column--span-${breakpointName}-${index + 1}:not(.trbl__column--hstart) {
             grid-column-start: span ${index + 1};
           }
