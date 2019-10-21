@@ -7,8 +7,8 @@ const GridProvider = (props) => {
   const {
     hCount,
     hCountOverrides,
-    columnGap,
-    rowGap,
+    hGap,
+    vGap,
     children,
     renderStyleSheet,
     breakpoints,
@@ -18,14 +18,23 @@ const GridProvider = (props) => {
   return (
     <Fragment>
       {renderStyleSheet
-        && <GlobalStyles {...{ hCount, columnGap, rowGap, breakpoints, scopeCSSTo }} />
+        && (
+          <GlobalStyles
+            {...{
+              hCount,
+              hGap,
+              vGap,
+              breakpoints,
+              scopeCSSTo,
+            }}
+          />
+        )
       }
       <GridContext.Provider
-        value={{
-          hCount,
+        value={{ hCount,
           hCountOverrides,
-          columnGap,
-          rowGap,
+          hGap,
+          vGap,
         }}
       >
         {children}
@@ -35,8 +44,8 @@ const GridProvider = (props) => {
 };
 
 GridProvider.defaultProps = {
-  columnGap: '0px',
-  rowGap: '0px',
+  hGap: '0px',
+  vGap: '0px',
   breakpoints: {
     xs: 350,
     s: 576,
@@ -66,13 +75,13 @@ GridProvider.propTypes = {
     l: PropTypes.number,
     xl: PropTypes.number,
   }),
-  columnGap: PropTypes.oneOfType([
+  hGap: PropTypes.oneOfType([
     PropTypes.oneOf([
       'columnWidth',
     ]),
     PropTypes.string,
   ]),
-  rowGap: PropTypes.string,
+  vGap: PropTypes.string,
   breakpoints: PropTypes.shape({
     xs: PropTypes.number,
     s: PropTypes.number,

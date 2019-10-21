@@ -7,14 +7,14 @@ import generateCellStyles from './generateCellStyles';
 const GlobalStyles = (props) => {
   const {
     hCount,
-    columnGap,
-    rowGap,
+    hGap,
+    vGap,
     breakpoints,
     scopeCSSTo,
     minifyCSS,
   } = props;
 
-  const rowStyles = generateGridStyles(hCount, columnGap, rowGap, breakpoints, scopeCSSTo);
+  const rowStyles = generateGridStyles(hCount, hGap, vGap, breakpoints, scopeCSSTo);
   const columnStyles = generateCellStyles(hCount, breakpoints, scopeCSSTo);
   const styles = rowStyles.concat(columnStyles);
 
@@ -24,8 +24,8 @@ const GlobalStyles = (props) => {
 };
 
 GlobalStyles.defaultProps = {
-  columnGap: '0px',
-  rowGap: '0px',
+  hGap: '0px',
+  vGap: '0px',
   breakpoints: {
     xs: 350,
     s: 576,
@@ -39,8 +39,8 @@ GlobalStyles.defaultProps = {
 
 GlobalStyles.propTypes = {
   hCount: PropTypes.number.isRequired,
-  columnGap: PropTypes.string,
-  rowGap: PropTypes.string,
+  hGap: PropTypes.string,
+  vGap: PropTypes.string,
   breakpoints: PropTypes.shape({
     xs: PropTypes.number,
     s: PropTypes.number,
