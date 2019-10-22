@@ -12,11 +12,12 @@ const GlobalStyles = (props) => {
     breakpoints,
     scopeCSSTo,
     minifyCSS,
+    classPrefix,
   } = props;
 
-  const rowStyles = generateGridStyles(hCount, hGap, vGap, breakpoints, scopeCSSTo);
-  const columnStyles = generateCellStyles(hCount, breakpoints, scopeCSSTo);
-  const styles = rowStyles.concat(columnStyles);
+  const gridStyles = generateGridStyles(classPrefix, hCount, hGap, vGap, breakpoints, scopeCSSTo);
+  const cellStyles = generateCellStyles(classPrefix, hCount, breakpoints, scopeCSSTo);
+  const styles = gridStyles.concat(cellStyles);
 
   return (
     <style dangerouslySetInnerHTML={{ __html: minifyCSS ? minifyCssString(styles) : styles }} />
@@ -35,6 +36,7 @@ GlobalStyles.defaultProps = {
   },
   scopeCSSTo: '',
   minifyCSS: true,
+  classPrefix: '',
 };
 
 GlobalStyles.propTypes = {
@@ -50,6 +52,7 @@ GlobalStyles.propTypes = {
   }),
   scopeCSSTo: PropTypes.string,
   minifyCSS: PropTypes.bool,
+  classPrefix: PropTypes.string,
 };
 
 export default GlobalStyles;

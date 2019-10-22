@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GridContext from '../GridProvider/context';
-import baseClass from './baseClass';
 
 const Grid = (props) => {
   const {
@@ -19,11 +18,14 @@ const Grid = (props) => {
           hCountOverrides: {
             xs, s, m, l, xl,
           } = {},
+          classPrefix,
         } = gridContext;
+
+        const baseClass = `${classPrefix}__grid`;
 
         const classes = [
           className,
-          baseClass,
+          `${baseClass}`,
           `${baseClass}--hcount-${hCount}`,
           xs && `${baseClass}--hcount-xs-${xs}`,
           s && `${baseClass}--hcount-s-${s}`,

@@ -1,7 +1,6 @@
 import scopeCSSToSelector from './scopeCSSToSelector';
-import baseClass from '../Grid/baseClass';
 
-const formatRowCSS = (index, hGap, breakpointName) => {
+const formatRowCSS = (baseClass, index, hGap, breakpointName) => {
   const hCount = index + 1;
   const className = `.${baseClass}--hcount-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
 
@@ -17,10 +16,12 @@ const formatRowCSS = (index, hGap, breakpointName) => {
   );
 };
 
-const generateGridStyles = (hCount, hGap, vGap, breakpoints, scopeCSSTo) => {
+const generateGridStyles = (classPrefix, hCount, hGap, vGap, breakpoints, scopeCSSTo) => {
   const hCols = [...Array(hCount).keys()];
   const breakpointKeys = Object.keys(breakpoints).reverse(); // reverse for specificity
   let rowStyles = '';
+
+  const baseClass = `${classPrefix}__grid`;
 
   rowStyles += scopeCSSToSelector(scopeCSSTo, `
     .${baseClass} {
@@ -29,13 +30,13 @@ const generateGridStyles = (hCount, hGap, vGap, breakpoints, scopeCSSTo) => {
     }`);
 
   hCols.forEach((hCol, index) => {
-    rowStyles += scopeCSSToSelector(scopeCSSTo, formatRowCSS(index, hGap));
+    rowStyles += scopeCSSToSelector(scopeCSSTo, formatRowCSS(baseClass, index, hGap));
   });
 
   breakpointKeys.forEach((breakpointName) => {
     rowStyles += `
       @media (max-width: ${breakpoints[breakpointName]}px) {
-        ${hCols.map((hCol, index) => scopeCSSToSelector(scopeCSSTo, formatRowCSS(index, hGap, breakpointName))).join(' ')}
+        ${hCols.map((hCol, index) => scopeCSSToSelector(scopeCSSTo, formatRowCSS(baseClass, index, hGap, breakpointName))).join(' ')}
       }
     `;
   });

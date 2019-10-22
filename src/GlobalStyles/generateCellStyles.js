@@ -1,7 +1,6 @@
 import scopeCSSToSelector from './scopeCSSToSelector';
-import baseClass from '../Cell/baseClass';
 
-const formatColumnCSS = (index, breakpointName) => {
+const formatColumnCSS = (baseClass, index, breakpointName) => {
   const hCount = index + 1;
   const spanClassName = `.${baseClass}--hspan-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
   const hStartClassName = `.${baseClass}--hstart-${breakpointName ? `${breakpointName}-` : ''}${hCount}`;
@@ -21,20 +20,22 @@ const formatColumnCSS = (index, breakpointName) => {
   );
 };
 
-const generateCellStyles = (hCount, breakpoints, scopeTo) => {
+const generateCellStyles = (classPrefix, hCount, breakpoints, scopeTo) => {
   const hCols = [...Array(hCount).keys()];
   const breakpointKeys = Object.keys(breakpoints).reverse(); // reverse for specificity
   let columnStyles = '';
 
+  const baseClass = `${classPrefix}__cell`;
+
   hCols.forEach((hCol, index) => {
-    columnStyles += scopeCSSToSelector(scopeTo, formatColumnCSS(index));
+    columnStyles += scopeCSSToSelector(scopeTo, formatColumnCSS(baseClass, index));
   });
 
   // loop seperately for specifity and to minimize on @media definitions
   breakpointKeys.forEach((breakpointName) => {
     columnStyles += `
       @media (max-width: ${breakpoints[breakpointName]}px) {
-        ${hCols.map((hCol, index) => scopeCSSToSelector(scopeTo, formatColumnCSS(index, breakpointName))).join(' ')}}
+        ${hCols.map((hCol, index) => scopeCSSToSelector(scopeTo, formatColumnCSS(baseClass, index, breakpointName))).join(' ')}}
     `;
   });
 

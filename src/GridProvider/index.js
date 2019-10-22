@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import GridContext from './context';
 import GlobalStyles from '../GlobalStyles';
+import defaultClassPrefix from './defaultClassPrefix';
 
 const GridProvider = (props) => {
   const {
@@ -13,6 +14,7 @@ const GridProvider = (props) => {
     renderStyleSheet,
     breakpoints,
     scopeCSSTo,
+    classPrefix,
   } = props;
 
   return (
@@ -27,14 +29,17 @@ const GridProvider = (props) => {
               breakpoints,
               scopeCSSTo,
             }}
+            classPrefix={classPrefix || defaultClassPrefix}
           />
         )
       }
       <GridContext.Provider
-        value={{ hCount,
+        value={{
+          hCount,
           hCountOverrides,
           hGap,
           vGap,
+          classPrefix: classPrefix || defaultClassPrefix,
         }}
       >
         {children}
@@ -57,6 +62,7 @@ GridProvider.defaultProps = {
   scopeCSSTo: '',
   minifyCSS: true,
   hCountOverrides: undefined,
+  classPrefix: '',
 };
 
 GridProvider.propTypes = {
@@ -91,6 +97,7 @@ GridProvider.propTypes = {
   }),
   scopeCSSTo: PropTypes.string,
   minifyCSS: PropTypes.bool,
+  classPrefix: PropTypes.string,
 };
 
 export default GridProvider;

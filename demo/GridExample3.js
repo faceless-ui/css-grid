@@ -7,7 +7,7 @@ const GridExample3 = () => {
       id="grid-example-3"
       style={{ border: '1px solid', padding: '10px', marginBottom: '10px' }}
     >
-      <p><b>14 column grid nested grid with gutters optionally removed</b></p>
+      <p><b>14 column grid grid with custom class name</b></p>
       <p>Abstract: Lorem ipsum</p>
       <hr />
       <p>props:</p>
@@ -19,6 +19,7 @@ const GridExample3 = () => {
         <p>hGap: 10px</p>
         <p>vGap: 10px</p>
         <p>scopeCSSTo: &ldquo;#grid-12-col-example&rdquo;</p>
+        <p>classPrefix: &ldquo;custom&rdquo;</p>
       </code>
       <GridProvider
         hCount={14}
@@ -33,6 +34,7 @@ const GridExample3 = () => {
         }}
         minifyCSS={false}
         scopeCSSTo="#grid-example-3"
+        classPrefix="custom"
       >
         <div style={{ border: '1px solid' }}>
           <Grid>
