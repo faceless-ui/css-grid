@@ -2,7 +2,7 @@
   "name": "react-css-grid",
   "version": "1.0.0",
   "main": "dist/build.bundle.js",
-  "repository": "git@github.com:keen-studio/react-css-grid.git",
+  "repository": "git@github.com:trbldesign/react-css-grid.git",
   "author": "<jacobsfletch@gmail.com>",
   "license": "MIT",
   "scripts": {
