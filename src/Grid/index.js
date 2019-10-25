@@ -4,6 +4,7 @@ import GridContext from '../GridProvider/context';
 
 const Grid = (props) => {
   const {
+    id,
     className,
     children,
     style,
@@ -36,6 +37,7 @@ const Grid = (props) => {
 
         return (
           <HtmlElement
+            id={id}
             className={classes}
             style={{ ...style }}
           >
@@ -49,12 +51,14 @@ const Grid = (props) => {
 
 
 Grid.defaultProps = {
-  className: '',
+  id: undefined,
+  className: undefined,
   style: {},
   htmlElement: 'div',
 };
 
 Grid.propTypes = {
+  id: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.node,

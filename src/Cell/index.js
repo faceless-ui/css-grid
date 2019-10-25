@@ -5,6 +5,7 @@ import GridProvider from '../GridProvider';
 
 const Cell = (props) => {
   const {
+    id,
     className,
     hSpan,
     hSpanXS,
@@ -72,6 +73,7 @@ const Cell = (props) => {
             }}
           >
             <HtmlElement
+              id={id}
               className={classes}
               style={{ ...style }}
             >
@@ -86,7 +88,8 @@ const Cell = (props) => {
 
 
 Cell.defaultProps = {
-  className: '',
+  id: undefined,
+  className: undefined,
   hSpan: undefined,
   hSpanXS: undefined,
   hSpanS: undefined,
@@ -104,6 +107,7 @@ Cell.defaultProps = {
 };
 
 Cell.propTypes = {
+  id: PropTypes.string,
   className: PropTypes.string,
   hSpan: PropTypes.number,
   hSpanXS: PropTypes.number,

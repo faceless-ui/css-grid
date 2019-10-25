@@ -35,11 +35,15 @@ const GridDemo1 = () => {
         scopeCSSTo="#grid-demo-1"
       >
         <div style={{ marginBottom: '10px', border: '1px solid' }}>
-          <Grid className="custom-grid-class">
+          <Grid
+            className="custom-grid-class"
+            id="custom-grid-id"
+          >
             <Cell
               hSpan={4}
               style={{ backgroundColor: 'lightpink' }}
               className="custom-cell-class"
+              id="custom-cell-id"
             >
               <Grid>
                 <Cell
