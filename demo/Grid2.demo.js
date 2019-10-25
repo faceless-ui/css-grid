@@ -1,24 +1,25 @@
 import React from 'react';
 import { Grid, Cell, GridProvider } from '../src';
 
-const GridExample1 = () => {
+const GridDemo2 = () => {
   return (
-    <div
-      id="grid-example-2"
-      style={{ border: '1px solid', padding: '10px', marginBottom: '10px' }}
-    >
+    <div id="grid-demo-2">
       <p><b>12 column grid with gutter equal to the column width:</b></p>
       <p>To demonstrate a nested grid that behaves differently across screen sizes</p>
       <hr />
       <p>props:</p>
       <code>
-        <p>s: 576</p>
-        <p>m: 768</p>
-        <p>l: 992</p>
-        <p>xl: 1200</p>
+        <p>hCount: 12</p>
         <p>hGap: columnWidth</p>
         <p>vGap: 10px</p>
-        <p>scopeCSSTo: &ldquo;#grid-12-col-example&rdquo;</p>
+        <p>breakpoints:</p>
+        <ul>
+          <li>s: 576</li>
+          <li>m: 768</li>
+          <li>l: 992</li>
+          <li>xl: 1200</li>
+        </ul>
+        <p>scopeCSSTo: &ldquo;#grid-12-col-demo&rdquo;</p>
       </code>
       <GridProvider
         hCount={12}
@@ -32,7 +33,7 @@ const GridExample1 = () => {
           xl: 1200,
         }}
         minifyCSS={false}
-        scopeCSSTo="#grid-example-2"
+        scopeCSSTo="#grid-demo-2"
       >
         <div style={{ border: '1px solid', marginBottom: '10px' }}>
           <Grid>
@@ -133,4 +134,4 @@ const GridExample1 = () => {
   );
 };
 
-export default GridExample1;
+export default GridDemo2;

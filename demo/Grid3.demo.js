@@ -1,24 +1,25 @@
 import React from 'react';
 import { Grid, Cell, GridProvider } from '../src';
 
-const GridExample3 = () => {
+const GridDemo3 = () => {
   return (
-    <div
-      id="grid-example-3"
-      style={{ border: '1px solid', padding: '10px', marginBottom: '10px' }}
-    >
+    <div id="grid-demo-3">
       <p><b>14 column grid grid with custom class name</b></p>
       <p>Abstract: Lorem ipsum</p>
       <hr />
       <p>props:</p>
       <code>
-        <p>s: 576</p>
-        <p>m: 768</p>
-        <p>l: 992</p>
-        <p>xl: 1200</p>
+        <p>hCount: 14</p>
         <p>hGap: 10px</p>
         <p>vGap: 10px</p>
-        <p>scopeCSSTo: &ldquo;#grid-12-col-example&rdquo;</p>
+        <p>breakpoints:</p>
+        <ul>
+          <li>s: 576</li>
+          <li>m: 768</li>
+          <li>l: 992</li>
+          <li>xl: 1200</li>
+        </ul>
+        <p>scopeCSSTo: &ldquo;#grid-12-col-demo&rdquo;</p>
         <p>classPrefix: &ldquo;custom&rdquo;</p>
       </code>
       <GridProvider
@@ -33,7 +34,7 @@ const GridExample3 = () => {
           xl: 1200,
         }}
         minifyCSS={false}
-        scopeCSSTo="#grid-example-3"
+        scopeCSSTo="#grid-demo-3"
         classPrefix="custom"
       >
         <div style={{ border: '1px solid' }}>
@@ -144,4 +145,4 @@ const GridExample3 = () => {
   );
 };
 
-export default GridExample3;
+export default GridDemo3;

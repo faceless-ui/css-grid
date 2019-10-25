@@ -1,34 +1,67 @@
-# React CSS Grid
+# React CSS Grid ![Beta](https://img.shields.io/badge/release-alpha-ff4553)
 
-## Source Code
+## Abstract
 
-### Abstract
+This project leverages React's Context API with the CSS Grid Layout specification in a way that allows for a pleasingly simple-to-use horizontal grid system, complete with breakpoints and nested-grid support.
 
-This project leverages React's Context API as well as the newly instituted CSS Grid Layout specification in a way that allows for an elegantly abstracted horizontal column system, complete with nested-column support.
+## Component Composition
 
-### Component Composition
-
-```javascript
-  <GridProvider numberOfColumns={14} gutterSize={'10px' || 'columnWidth'}>
-    <Row>
-      <Column span={4}>
-        <Row>
-          <Column span={2} />
-          <Column span={2} />
-        </Row>
-      </Column>
-      <Column span={10} />
-    </Row>
+```jsx
+  <GridProvider
+    hGap="columnWidth"
+    vGap="10px"
+    breakpoints={{
+      xs: 350,
+      s: 576,
+      m: 768,
+      l: 992,
+      xl: 1200,
+    }}
+    classPrefix="demo"
+    scopeCSSTo="#grid-demo"
+  >
+    <div id="grid-demo">
+      <Grid>
+        <Cell
+          hStart={2}
+          hSpan={4}
+          hStartL={1}
+          hSpanS={6}
+        >
+          <Grid>
+            <Cell
+              hSpan={2}
+              hSpanS={3}
+            >
+              ...
+            </Cell>
+            <Cell
+              hSpan={2}
+              hSpanS={3}
+            >
+              ...
+            </Cell>
+          </Grid>
+        </Cell>
+        <Cell
+          hSpan={8}
+          hSpanL={9}
+          hSpanS={8}
+        >
+          ...
+        </Cell>
+      </Grid>
+    </div>
   </GridProvider>
 ```
 
-### Component Documentation
+## Component Documentation
 
 The source components in their raw form are found in the `src` directory. These are all batch exported from the top-level `index.js` so that they can be easily accessed via import.
 
-[Grid Row](/src/Row/README.md)
-[Grid Column](/src/Column/README.md)
-[Grid Provider](/src/GridProvider/README.md)
+  - [Grid ](/src/Grid/README.md)
+  - [Cell](/src/Cell/README.md)
+  - [Grid Provider](/src/GridProvider/README.md)
 
 ## Environment
 
@@ -40,10 +73,10 @@ The entrypoint for the production bundle is `/dist/build.bundle.js`, as defined 
 
 Generating this production bundle is defined in `webpack.production.config.js`, one of two custom webpack configurations defined at the top of this repo. It simply processes all of the `.js` files within the `src` directory through the `babel-loader` transpiler and into the `dist` directory.
 
-  - tldr: `npm run build`.
+  - tldr: `npm run build`
 
 ### Development
 
-The other webpack configuration is `webpack.development.config.js` which does a few things differently -- compilation happens from the `demo` directory as opposed to the `src` directory. It then will spin up `webpack-dev-server`, which serves a compiled and transpiled build _in memory_, with hot-reloading enabled.
+The other webpack configuration is `webpack.development.config.js` which does a few things differently -- compilation happens from the `demo` directory as opposed to the `src` directory directly. It then will spin up `webpack-dev-server`, which serves a compiled and transpiled build _in memory_, with hot-reloading enabled.
 
-  - tldr: `npm run dev`.
+  - tldr: `npm run dev`
