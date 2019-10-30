@@ -1,4 +1,7 @@
-# React CSS Grid ![Beta](https://img.shields.io/badge/release-alpha-ff4553)
+[![NPM](https://img.shields.io/npm/v/@trbl/react-css-grid)](https://www.npmjs.com/@trbl/react-css-grid)
+[![Supported by TRBL](https://img.shields.io/badge/supported_by-TRBL-black)](https://github.com/trbldesign)
+
+# React CSS Grid
 
 ## Abstract
 

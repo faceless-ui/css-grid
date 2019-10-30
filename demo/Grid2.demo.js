@@ -7,20 +7,29 @@ const GridDemo2 = () => {
       <p><b>12 column grid with gutter equal to the column width:</b></p>
       <p>To demonstrate a nested grid that behaves differently across screen sizes</p>
       <hr />
-      <p>props:</p>
-      <code>
-        <p>hCount: 12</p>
-        <p>hGap: columnWidth</p>
-        <p>vGap: 10px</p>
-        <p>breakpoints:</p>
-        <ul>
-          <li>s: 576</li>
-          <li>m: 768</li>
-          <li>l: 992</li>
-          <li>xl: 1200</li>
-        </ul>
-        <p>scopeCSSTo: &ldquo;#grid-12-col-demo&rdquo;</p>
-      </code>
+      <pre>
+        <code>
+          hCount: 12
+          <br />
+          hGap: columnWidth
+          <br />
+          vGap: 10px
+          <br />
+          {'breakpoints: {'}
+          <br />
+          &emsp;s: 576
+          <br />
+          &emsp;m: 768
+          <br />
+          &emsp;l: 992
+          <br />
+          &emsp;xl: 1200
+          <br />
+          {'}'}
+          <br />
+          scopeCSSTo: #grid-12-col-demo
+        </code>
+      </pre>
       <GridProvider
         hCount={12}
         hGap="columnWidth"
@@ -43,7 +52,7 @@ const GridDemo2 = () => {
               hSpanM={4}
               hSpanS={3}
               hSpanXS={2}
-              style={{ backgroundColor: 'lightblue' }}
+              style={{ backgroundColor: 'coral' }}
             >
               <p>hSpan: 6</p>
               <p>hSpanL: 5</p>
@@ -57,7 +66,7 @@ const GridDemo2 = () => {
               hSpanM={4}
               hSpanS={3}
               hSpanXS={2}
-              style={{ backgroundColor: 'lightblue' }}
+              style={{ backgroundColor: 'coral' }}
             >
               <p>hSpan: 6</p>
               <p>hSpanL: 5</p>
@@ -74,7 +83,7 @@ const GridDemo2 = () => {
               hSpanM={3}
               hStart={2}
               hStartS={11}
-              style={{ backgroundColor: 'lightblue' }}
+              style={{ backgroundColor: 'coral' }}
             >
               <p>hSpan: 2</p>
               <p>hSpanM: 3</p>
@@ -86,7 +95,7 @@ const GridDemo2 = () => {
               hSpanL={3}
               hStart={6}
               hStartM={7}
-              style={{ backgroundColor: 'lightblue' }}
+              style={{ backgroundColor: 'coral' }}
             >
               <Grid>
                 <Cell
@@ -110,19 +119,19 @@ const GridDemo2 = () => {
           <Grid>
             <Cell
               hSpan={12}
-              style={{ backgroundColor: 'lightblue' }}
+              style={{ backgroundColor: 'coral' }}
             >
               <p>first in DOM</p>
             </Cell>
             <Cell
               hSpan={12}
-              style={{ backgroundColor: 'lightblue' }}
+              style={{ backgroundColor: 'coral' }}
             >
               <p>second in DOM</p>
             </Cell>
             <Cell
               hSpan={12}
-              style={{ backgroundColor: 'lightblue' }}
+              style={{ backgroundColor: 'coral' }}
             >
               <p>third in DOM</p>
             </Cell>

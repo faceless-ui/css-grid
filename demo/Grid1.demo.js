@@ -7,20 +7,29 @@ const GridDemo1 = () => {
       <p><b>14 column grid demo</b></p>
       <p>To demonstrate a straightforward grid with nesting</p>
       <hr />
-      <p>props:</p>
-      <code>
-        <p>hCount: 14</p>
-        <p>hGap: 10px</p>
-        <p>vGap: 10px</p>
-        <p>breakpoints:</p>
-        <ul>
-          <li>s: 576</li>
-          <li>m: 768</li>
-          <li>l: 992</li>
-          <li>xl: 1200</li>
-        </ul>
-        <p>scopeCSSTo: &ldquo;#grid-14-col-demo&rdquo;</p>
-      </code>
+      <pre>
+        <code>
+          hCount: 14
+          <br />
+          hGap: 10px
+          <br />
+          vGap: 10px
+          <br />
+          {'breakpoints: {'}
+          <br />
+          &emsp;s: 576
+          <br />
+          &emsp;m: 768
+          <br />
+          &emsp;l: 992
+          <br />
+          &emsp;xl: 1200
+          <br />
+          {'}'}
+          <br />
+          scopeCSSTo: #grid-demo-1
+        </code>
+      </pre>
       <GridProvider
         hCount={14}
         hGap="10px"
@@ -41,7 +50,7 @@ const GridDemo1 = () => {
           >
             <Cell
               hSpan={4}
-              style={{ backgroundColor: 'lightpink' }}
+              style={{ backgroundColor: 'aqua' }}
               className="custom-cell-class"
               id="custom-cell-id"
             >
@@ -62,7 +71,7 @@ const GridDemo1 = () => {
             </Cell>
             <Cell
               hSpan={10}
-              style={{ backgroundColor: 'lightpink' }}
+              style={{ backgroundColor: 'aqua' }}
             >
               <p>hSpan 10</p>
             </Cell>
@@ -73,7 +82,7 @@ const GridDemo1 = () => {
           <Grid>
             <Cell
               hSpan={8}
-              style={{ backgroundColor: 'lightpink' }}
+              style={{ backgroundColor: 'aqua' }}
             >
               <Grid>
                 <Cell
@@ -88,19 +97,19 @@ const GridDemo1 = () => {
             <Cell
               hSpan={6}
               htmlElement="section"
-              style={{ backgroundColor: 'lightpink' }}
+              style={{ backgroundColor: 'aqua' }}
             >
               <p>hSpan 6 as Section</p>
             </Cell>
             <Cell
               hSpan={10}
-              style={{ backgroundColor: 'lightpink' }}
+              style={{ backgroundColor: 'aqua' }}
             >
               <p>Implicit column to show row gap</p>
             </Cell>
             <Cell
               hSpan={10}
-              style={{ backgroundColor: 'lightpink' }}
+              style={{ backgroundColor: 'aqua' }}
             >
               <p>Start on vertical line 1</p>
             </Cell>
