@@ -1,8 +1,9 @@
 {
   "name": "@trbl/react-css-grid",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/build.bundle.js",
   "repository": "git@github.com:trbldesign/react-css-grid.git",
+  "description": "A fully-featured React grid system based on CSS Grid Layout.",
   "author": "<info@trbl.design>",
   "license": "MIT",
   "keywords": [

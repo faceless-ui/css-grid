@@ -3,7 +3,7 @@
 
 # React CSS Grid
 
-A pleasingly simple-to-use horizontal grid system for React based on [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/), complete with breakpoints and nested-grid support.
+A fully-featured React grid system based on [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/).
 
 ## Quick Start
 
