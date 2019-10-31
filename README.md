@@ -3,83 +3,86 @@
 
 # React CSS Grid
 
-## Abstract
+A pleasingly simple-to-use horizontal grid system for React based on [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/), complete with breakpoints and nested-grid support.
 
-This project leverages React's Context API with the CSS Grid Layout specification in a way that allows for a pleasingly simple-to-use horizontal grid system, complete with breakpoints and nested-grid support.
+## Quick Start
 
-## Component Composition
+### Installation
 
-```jsx
-  <GridProvider
-    hGap="columnWidth"
-    vGap="10px"
-    breakpoints={{
-      xs: 350,
-      s: 576,
-      m: 768,
-      l: 992,
-      xl: 1200,
-    }}
-    classPrefix="demo"
-    scopeCSSTo="#grid-demo"
-  >
-    <div id="grid-demo">
-      <Grid>
-        <Cell
-          hStart={2}
-          hSpan={4}
-          hStartL={1}
-          hSpanS={6}
-        >
-          <Grid>
-            <Cell
-              hSpan={2}
-              hSpanS={3}
-            >
-              ...
-            </Cell>
-            <Cell
-              hSpan={2}
-              hSpanS={3}
-            >
-              ...
-            </Cell>
-          </Grid>
-        </Cell>
-        <Cell
-          hSpan={8}
-          hSpanL={9}
-          hSpanS={8}
-        >
-          ...
-        </Cell>
-      </Grid>
-    </div>
-  </GridProvider>
+```bash
+$ yarn add @trbl/react-css-grid
 ```
 
-## Component Documentation
+### Compositon
 
-The source components in their raw form are found in the `src` directory. These are all batch exported from the top-level `index.js` so that they can be easily accessed via import.
+```jsx
+  import React from 'react';
+  import { GridProvider, Grid, Cell } from '@trbl/react-css-grid';
 
-  - [Grid ](/src/Grid/README.md)
+  const App = () => {
+    return (
+      <GridProvider
+        hCount={12}
+        hGap="columnWidth"
+        vGap="10px"
+        breakpoints={{
+          xs: 350,
+          s: 576,
+          m: 768,
+          l: 992,
+          xl: 1200,
+        }}
+      >
+        <Grid>
+          <Cell hSpan={6}>
+            ...
+          </Cell>
+          <Cell
+            hSpan={10}
+            hStart={2}
+            hSpanL={12}
+            hStartL={1}
+            hSpanS={6}
+          >
+            <Grid>
+              <Cell
+                hSpan={5}
+                hSpanL={6}
+              >
+                ...
+              </Cell>
+              <Cell
+                hSpan={5}
+                hSpanL={6}
+              >
+                ...
+              </Cell>
+            </Grid>
+          </Cell>
+        </Grid>
+      </GridProvider>
+    )
+  }
+```
+
+## Demo
+
+To demo locally, clone the repo and
+
+```bash
+$ yarn install
+$ npm run dev
+$ open http://localhost:3000
+```
+
+## Documentation
+
+All available props can be found via the references below:
+
+  - [Grid](/src/Grid/README.md)
   - [Cell](/src/Cell/README.md)
   - [Grid Provider](/src/GridProvider/README.md)
 
-## Environment
+## License
 
-### Distribution
-
-The entrypoint for the production bundle is `/dist/build.bundle.js`, as defined in `package.json`. Importing this project will return that bundle.
-
-### Compilation and Transpilation
-
-Generating this production bundle is defined in `webpack.production.config.js`, one of two custom webpack configurations defined at the top of this repo. It simply processes all of the `.js` files within the `src` directory through the `babel-loader` transpiler and into the `dist` directory.
-
-  - tldr: `npm run build`
-
-### Development
-
-The other webpack configuration is `webpack.development.config.js` which does a few things differently -- compilation happens from the `demo` directory as opposed to the `src` directory directly. It then will spin up `webpack-dev-server`, which serves a compiled and transpiled build _in memory_, with hot-reloading enabled.
-
-  - tldr: `npm run dev`
+[MIT](https://github.com/trbldesign/react-css-grid/blob/master/LICENSE) Copyright (c) TRBL, LLC

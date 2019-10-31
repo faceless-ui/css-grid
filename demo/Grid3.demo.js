@@ -1,29 +1,28 @@
 import React from 'react';
-import { Grid, Cell, GridProvider } from '../src';
+import { Grid, Cell, GridProvider } from '../src'; // swap '../src' for '../dist/build.bundle' to demo production build
 
 const GridDemo3 = () => {
   return (
     <div id="grid-demo-3">
-      <p><b>14 column grid grid with custom class name</b></p>
-      <p>Abstract: Lorem ipsum</p>
-      <hr />
-      <pre>
+      <pre style={{ marginTop: '0px' }}>
         <code>
-          hCount: 14
+          hCount: 8
           <br />
-          hGap: 10px
+          hGap: 2vw
           <br />
-          vGap: 10px
+          vGap: 1rem
           <br />
           {'breakpoints: {'}
           <br />
-          &emsp;s: 576
+          &emsp;xs: 375
           <br />
-          &emsp;m: 768
+          &emsp;s: 600
           <br />
-          &emsp;l: 992
+          &emsp;m: 720
           <br />
-          &emsp;xl: 1200
+          &emsp;l: 1080
+          <br />
+          &emsp;xl: 1390
           <br />
           {'}'}
           <br />
@@ -32,125 +31,202 @@ const GridDemo3 = () => {
           classPrefix: abcde
         </code>
       </pre>
-      <GridProvider
-        hCount={14}
-        hGap="10px"
-        vGap="10px"
-        breakpoints={{
-          xs: 350,
-          s: 576,
-          m: 768,
-          l: 992,
-          xl: 1200,
-        }}
-        minifyCSS={false}
-        scopeCSSTo="#grid-demo-3"
-        classPrefix="abcde"
-      >
-        <div style={{ border: '1px solid' }}>
-          <Grid>
-            <Cell
-              hSpan={4}
-              style={{ backgroundColor: 'aquamarine' }}
+      <div style={{ position: 'relative' }}>
+        <GridProvider
+          hCount={8}
+          hGap="2vw"
+          vGap="1rem"
+          breakpoints={{
+            xs: 375,
+            s: 600,
+            m: 720,
+            l: 1080,
+            xl: 1390,
+          }}
+          minifyCSS={false}
+          scopeCSSTo="#grid-demo-3"
+          classPrefix="abcde"
+        >
+          <div>
+            <Grid
+              id="testIDProp"
+              className="testClassNameProp"
+              htmlAttributes={{
+                id: 'testIDAttribute',
+                className: 'testClassNameAttribute',
+                'aria-label': 'this is a test aria label attribute',
+                'data-test': 'this is a test data attribute',
+              }}
             >
-              <p>hi</p>
-            </Cell>
-            <Cell
-              hSpan={10}
-              style={{ backgroundColor: 'aquamarine' }}
-            >
-              <Grid disableHGap>
-                <Cell
-                  hSpan={5}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-                <Cell
-                  hSpan={5}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-              </Grid>
-            </Cell>
+              <Cell
+                id="testIDProp"
+                className="testClassNameProp"
+                hSpan={4}
+                hSpanM={8}
+                style={{ backgroundColor: 'aquamarine' }}
+                htmlAttributes={{
+                  id: 'testIDAttribute',
+                  className: 'testClassNameAttribute',
+                  'aria-label': 'this is a test aria label attribute',
+                  'data-test': 'this is a test data attribute',
+                  style: {
+                    color: 'red',
+                  },
+                }}
+              >
+                <pre>
+                  <code>
+                    hSpan: 4
+                    <br />
+                    hSpanM: 8
+                  </code>
+                </pre>
+              </Cell>
 
-            <Cell
-              hSpan={4}
-              style={{ backgroundColor: 'aquamarine' }}
-            >
-              <p>hi</p>
-            </Cell>
-            <Cell
-              hSpan={10}
-              style={{ backgroundColor: 'aquamarine' }}
-            >
-              <Grid>
-                <Cell
-                  hSpan={1}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-                <Cell
-                  hSpan={1}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-                <Cell
-                  hSpan={1}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-                <Cell
-                  hSpan={1}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-                <Cell
-                  hSpan={1}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-                <Cell
-                  hSpan={1}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-                <Cell
-                  hSpan={1}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-                <Cell
-                  hSpan={1}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-                <Cell
-                  hSpan={1}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-                <Cell
-                  hSpan={1}
-                  style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
-                >
-                  <p>hi</p>
-                </Cell>
-              </Grid>
-            </Cell>
-          </Grid>
-        </div>
-      </GridProvider>
+              <Cell
+                hSpan={4}
+                style={{ backgroundColor: 'aquamarine' }}
+              >
+                <Grid disableHGap>
+                  <Cell
+                    hSpan={4}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>nested hSpan: 4</code></pre>
+                  </Cell>
+                  <Cell
+                    hSpan={3}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>nested hSpan: 3</code></pre>
+                  </Cell>
+                </Grid>
+              </Cell>
+
+              <Cell
+                hSpan={3}
+                style={{ backgroundColor: 'aquamarine' }}
+              >
+                <pre><code>hSpan: 3</code></pre>
+              </Cell>
+              <Cell
+                hSpan={5}
+                style={{ backgroundColor: 'aquamarine' }}
+              >
+                <Grid>
+                  <Cell
+                    hSpan={1}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>hSpan: 1</code></pre>
+                  </Cell>
+                  <Cell
+                    hSpan={1}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>hSpan: 1</code></pre>
+                  </Cell>
+                  <Cell
+                    hSpan={1}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>hSpan: 1</code></pre>
+                  </Cell>
+                  <Cell
+                    hSpan={1}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>hSpan: 1</code></pre>
+                  </Cell>
+                  <Cell
+                    hSpan={1}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>hSpan: 1</code></pre>
+                  </Cell>
+                  <Cell
+                    hSpan={1}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>hSpan: 1</code></pre>
+                  </Cell>
+                  <Cell
+                    hSpan={1}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>hSpan: 1</code></pre>
+                  </Cell>
+                  <Cell
+                    hSpan={1}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>hSpan: 1</code></pre>
+                  </Cell>
+                  <Cell
+                    hSpan={1}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>hSpan: 1</code></pre>
+                  </Cell>
+                  <Cell
+                    hSpan={1}
+                    style={{ backgroundColor: 'rgba(0, 0, 0, .15)' }}
+                  >
+                    <pre><code>hSpan: 1</code></pre>
+                  </Cell>
+                </Grid>
+              </Cell>
+            </Grid>
+          </div>
+
+          <div
+            style={{
+              position: 'absolute',
+              top: '0',
+              right: '0',
+              bottom: '0',
+              left: '0',
+              pointerEvents: 'none',
+              opacity: '.25',
+            }}
+          >
+            <Grid style={{ height: '100%' }}>
+              <Cell
+                hSpan={1}
+                style={{ border: '1px dashed black' }}
+              />
+              <Cell
+                hSpan={1}
+                style={{ border: '1px dashed black' }}
+              />
+              <Cell
+                hSpan={1}
+                style={{ border: '1px dashed black' }}
+              />
+              <Cell
+                hSpan={1}
+                style={{ border: '1px dashed black' }}
+              />
+              <Cell
+                hSpan={1}
+                style={{ border: '1px dashed black' }}
+              />
+              <Cell
+                hSpan={1}
+                style={{ border: '1px dashed black' }}
+              />
+              <Cell
+                hSpan={1}
+                style={{ border: '1px dashed black' }}
+              />
+              <Cell
+                hSpan={1}
+                style={{ border: '1px dashed black' }}
+              />
+            </Grid>
+          </div>
+        </GridProvider>
+      </div>
     </div>
   );
 };
