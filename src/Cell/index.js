@@ -22,6 +22,7 @@ const Cell = (props) => {
     children,
     style,
     htmlElement: HtmlElement,
+    htmlAttributes,
   } = props;
 
   const hCountOverrides = {
@@ -31,6 +32,11 @@ const Cell = (props) => {
     l: hSpanL,
     xl: hSpanXL,
   };
+
+  const strippedHtmlAttributes = { ...htmlAttributes };
+  delete strippedHtmlAttributes.id;
+  delete strippedHtmlAttributes.className;
+  delete strippedHtmlAttributes.style;
 
   return (
     <GridContext.Consumer>
@@ -59,6 +65,7 @@ const Cell = (props) => {
           hStartL && `${baseClass}--hstart-l-${hStartL}`,
           hStartXL && `${baseClass}--hstart-xl-${hStartXL}`,
           className,
+          htmlAttributes.className,
         ].filter(Boolean).join(' ');
 
         return (
@@ -73,9 +80,13 @@ const Cell = (props) => {
             }}
           >
             <HtmlElement
-              id={id}
+              id={id || htmlAttributes.id}
               className={classes}
-              style={{ ...style }}
+              style={{
+                ...style,
+                ...htmlAttributes.style,
+              }}
+              {...strippedHtmlAttributes}
             >
               {children}
             </HtmlElement>
@@ -102,8 +113,10 @@ Cell.defaultProps = {
   hStartM: undefined,
   hStartL: undefined,
   hStartXL: undefined,
+  children: undefined,
   style: {},
   htmlElement: 'div',
+  htmlAttributes: {},
 };
 
 Cell.propTypes = {
@@ -121,15 +134,24 @@ Cell.propTypes = {
   hStartM: PropTypes.number,
   hStartL: PropTypes.number,
   hStartXL: PropTypes.number,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   style: PropTypes.shape({}),
   htmlElement: PropTypes.oneOf([
-    'div',
-    'nav',
-    'span',
-    'section',
     'article',
+    'aside',
+    'div',
+    'footer',
+    'header',
+    'main',
+    'nav',
+    'section',
+    'span',
   ]),
+  htmlAttributes: PropTypes.shape({
+    id: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.shape({}),
+  }),
 };
 
 export default Cell;

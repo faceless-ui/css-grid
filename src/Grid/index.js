@@ -9,7 +9,13 @@ const Grid = (props) => {
     children,
     style,
     htmlElement: HtmlElement,
+    htmlAttributes,
   } = props;
+
+  const strippedHtmlAttributes = { ...htmlAttributes };
+  delete strippedHtmlAttributes.id;
+  delete strippedHtmlAttributes.className;
+  delete strippedHtmlAttributes.style;
 
   return (
     <GridContext.Consumer>
@@ -25,21 +31,26 @@ const Grid = (props) => {
         const baseClass = `${classPrefix}__grid`;
 
         const classes = [
-          className,
-          `${baseClass}`,
-          `${baseClass}--hcount-${hCount}`,
+          baseClass,
+          hCount && `${baseClass}--hcount-${hCount}`,
           xs && `${baseClass}--hcount-xs-${xs}`,
           s && `${baseClass}--hcount-s-${s}`,
           m && `${baseClass}--hcount-m-${m}`,
           l && `${baseClass}--hcount-l-${l}`,
           xl && `${baseClass}--hcount-xl-${xl}`,
+          className,
+          htmlAttributes.className,
         ].filter(Boolean).join(' ');
 
         return (
           <HtmlElement
-            id={id}
+            id={id || htmlAttributes.id}
             className={classes}
-            style={{ ...style }}
+            style={{
+              ...style,
+              ...htmlAttributes.style,
+            }}
+            {...strippedHtmlAttributes}
           >
             {children}
           </HtmlElement>
@@ -49,12 +60,12 @@ const Grid = (props) => {
   );
 };
 
-
 Grid.defaultProps = {
   id: undefined,
   className: undefined,
   style: {},
   htmlElement: 'div',
+  htmlAttributes: {},
 };
 
 Grid.propTypes = {
@@ -68,12 +79,21 @@ Grid.propTypes = {
   ]).isRequired,
   style: PropTypes.shape({}),
   htmlElement: PropTypes.oneOf([
-    'div',
-    'nav',
-    'span',
-    'section',
     'article',
+    'aside',
+    'div',
+    'footer',
+    'header',
+    'main',
+    'nav',
+    'section',
+    'span',
   ]),
+  htmlAttributes: PropTypes.shape({
+    id: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.shape({}),
+  }),
 };
 
 export default Grid;
