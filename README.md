@@ -1,4 +1,5 @@
 [![NPM](https://img.shields.io/npm/v/@trbl/react-css-grid)](https://www.npmjs.com/@trbl/react-css-grid)
+![Bundle Size](https://img.shields.io/bundlephobia/minzip/@trbl/react-css-grid?label=zipped)
 [![Supported by TRBL](https://img.shields.io/badge/supported_by-TRBL-black)](https://github.com/trouble)
 
 # React CSS Grid
@@ -85,4 +86,4 @@ All available props can be found via the references below:
 
 ## License
 
-[MIT](https://github.com/trbldesign/react-css-grid/blob/master/LICENSE) Copyright (c) TRBL, LLC
+[MIT](https://github.com/trouble/react-css-grid/blob/master/LICENSE) Copyright (c) TRBL, LLC
