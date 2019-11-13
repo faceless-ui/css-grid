@@ -88,6 +88,8 @@ Grid.propTypes = {
     'nav',
     'section',
     'span',
+    'ul',
+    'li',
   ]),
   htmlAttributes: PropTypes.shape({
     id: PropTypes.string,

@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "main": "dist/build.bundle.js",
   "repository": "git@github.com:trouble/react-css-grid.git",
-  "description": "A fully-featured React grid system based on CSS Grid Layout.",
+  "description": "A gritty grid for React projects, based on CSS Grid Layout.",
   "author": "<info@trbl.design>",
   "license": "MIT",
   "keywords": [

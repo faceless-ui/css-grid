@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import GridContext from './context';
 import GlobalStyles from '../GlobalStyles';
-import defaultClassPrefix from './defaultClassPrefix';
+import defaultClassPrefix from '../defaultClassPrefix';
 
 const GridProvider = (props) => {
   const {

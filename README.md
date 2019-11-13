@@ -4,7 +4,7 @@
 
 # React CSS Grid
 
-A fully-featured React grid system based on [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/).
+A gritty grid for React projects, based on [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/).
 
 ## Quick Start
 
@@ -80,8 +80,8 @@ $ open http://localhost:3000
 
 All available props can be found via the references below:
 
-  - [Grid](/src/Grid/README.md)
   - [Cell](/src/Cell/README.md)
+  - [Grid](/src/Grid/README.md)
   - [Grid Provider](/src/GridProvider/README.md)
 
 ## License
