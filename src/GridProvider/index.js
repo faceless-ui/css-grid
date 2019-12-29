@@ -31,8 +31,7 @@ const GridProvider = (props) => {
             }}
             classPrefix={classPrefix || defaultClassPrefix}
           />
-        )
-      }
+        )}
       <GridContext.Provider
         value={{
           hCount,

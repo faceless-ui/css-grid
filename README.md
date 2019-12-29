@@ -14,7 +14,7 @@ A grid for React projects, based on [CSS Grid Layout](https://www.w3.org/TR/css-
 $ yarn add @trbl/react-css-grid
 ```
 
-### Compositon
+### Composition
 
 ```jsx
   import React from 'react';
@@ -71,8 +71,8 @@ $ yarn add @trbl/react-css-grid
 To demo locally, clone the repo and
 
 ```bash
-$ yarn install
-$ npm run dev
+$ yarn
+$ yarn dev
 $ open http://localhost:3000
 ```
 
