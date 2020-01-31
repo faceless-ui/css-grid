@@ -80,9 +80,9 @@ $ open http://localhost:3000
 
 All available props can be found via the references below:
 
-  - [Cell](/src/Cell/README.md)
-  - [Grid](/src/Grid/README.md)
-  - [Grid Provider](/src/GridProvider/README.md)
+  - [Cell](./src/Cell/README.md)
+  - [Grid](./src/Grid/README.md)
+  - [Grid Provider](./src/GridProvider/README.md)
 
 ## Contribution
 
