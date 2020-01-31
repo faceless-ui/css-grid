@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import HTMLElement from '@trbl/react-html-element';
 import GridContext from '../GridProvider/context';
 import GridProvider from '../GridProvider';
 
@@ -19,10 +20,10 @@ const Cell = (props) => {
     hStartM,
     hStartL,
     hStartXL,
-    children,
     style,
-    htmlElement: HtmlElement,
+    htmlElement,
     htmlAttributes,
+    children,
   } = props;
 
   const hCountOverrides = {
@@ -32,11 +33,6 @@ const Cell = (props) => {
     l: hSpanL,
     xl: hSpanXL,
   };
-
-  const strippedHtmlAttributes = { ...htmlAttributes };
-  delete strippedHtmlAttributes.id;
-  delete strippedHtmlAttributes.className;
-  delete strippedHtmlAttributes.style;
 
   return (
     <GridContext.Consumer>
@@ -49,7 +45,7 @@ const Cell = (props) => {
 
         const baseClass = `${classPrefix}__cell`;
 
-        const classes = [
+        const mergedClasses = [
           baseClass,
           hSpan && `${baseClass}--hspan-${hSpan}`,
           hSpanXS && `${baseClass}--hspan-xs-${hSpanXS}`,
@@ -65,7 +61,6 @@ const Cell = (props) => {
           hStartL && `${baseClass}--hstart-l-${hStartL}`,
           hStartXL && `${baseClass}--hstart-xl-${hStartXL}`,
           className,
-          htmlAttributes.className,
         ].filter(Boolean).join(' ');
 
         return (
@@ -79,17 +74,17 @@ const Cell = (props) => {
               classPrefix,
             }}
           >
-            <HtmlElement
-              id={id || htmlAttributes.id}
-              className={classes}
-              style={{
-                ...style,
-                ...htmlAttributes.style,
+            <HTMLElement
+              {...{
+                id,
+                className: mergedClasses,
+                style,
+                htmlElement,
+                htmlAttributes,
               }}
-              {...strippedHtmlAttributes}
             >
-              {children}
-            </HtmlElement>
+              {children && children}
+            </HTMLElement>
           </GridProvider>
         );
       }}
@@ -113,10 +108,10 @@ Cell.defaultProps = {
   hStartM: undefined,
   hStartL: undefined,
   hStartXL: undefined,
-  children: undefined,
   style: {},
   htmlElement: 'div',
   htmlAttributes: {},
+  children: undefined,
 };
 
 Cell.propTypes = {
@@ -134,26 +129,15 @@ Cell.propTypes = {
   hStartM: PropTypes.number,
   hStartL: PropTypes.number,
   hStartXL: PropTypes.number,
-  children: PropTypes.node,
   style: PropTypes.shape({}),
-  htmlElement: PropTypes.oneOf([
-    'article',
-    'aside',
-    'div',
-    'footer',
-    'header',
-    'main',
-    'nav',
-    'section',
-    'span',
-    'ul',
-    'li',
+  htmlElement: PropTypes.string,
+  htmlAttributes: PropTypes.shape({}),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(
+      PropTypes.node,
+    ),
   ]),
-  htmlAttributes: PropTypes.shape({
-    id: PropTypes.string,
-    className: PropTypes.string,
-    style: PropTypes.shape({}),
-  }),
 };
 
 export default Cell;

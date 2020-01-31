@@ -1,21 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import HTMLElement from '@trbl/react-html-element';
 import GridContext from '../GridProvider/context';
 
 const Grid = (props) => {
   const {
     id,
     className,
-    children,
     style,
-    htmlElement: HtmlElement,
+    htmlElement,
     htmlAttributes,
+    children,
   } = props;
-
-  const strippedHtmlAttributes = { ...htmlAttributes };
-  delete strippedHtmlAttributes.id;
-  delete strippedHtmlAttributes.className;
-  delete strippedHtmlAttributes.style;
 
   return (
     <GridContext.Consumer>
@@ -30,7 +26,7 @@ const Grid = (props) => {
 
         const baseClass = `${classPrefix}__grid`;
 
-        const classes = [
+        const mergedClasses = [
           baseClass,
           hCount && `${baseClass}--hcount-${hCount}`,
           xs && `${baseClass}--hcount-xs-${xs}`,
@@ -39,21 +35,20 @@ const Grid = (props) => {
           l && `${baseClass}--hcount-l-${l}`,
           xl && `${baseClass}--hcount-xl-${xl}`,
           className,
-          htmlAttributes.className,
         ].filter(Boolean).join(' ');
 
         return (
-          <HtmlElement
-            id={id || htmlAttributes.id}
-            className={classes}
-            style={{
-              ...style,
-              ...htmlAttributes.style,
+          <HTMLElement
+            {...{
+              id,
+              className: mergedClasses,
+              style,
+              htmlElement,
+              htmlAttributes,
             }}
-            {...strippedHtmlAttributes}
           >
-            {children}
-          </HtmlElement>
+            {children && children}
+          </HTMLElement>
         );
       }}
     </GridContext.Consumer>
@@ -66,36 +61,21 @@ Grid.defaultProps = {
   style: {},
   htmlElement: 'div',
   htmlAttributes: {},
+  children: undefined,
 };
 
 Grid.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
+  style: PropTypes.shape({}),
+  htmlElement: PropTypes.string,
+  htmlAttributes: PropTypes.shape({}),
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(
       PropTypes.node,
     ),
-  ]).isRequired,
-  style: PropTypes.shape({}),
-  htmlElement: PropTypes.oneOf([
-    'article',
-    'aside',
-    'div',
-    'footer',
-    'header',
-    'main',
-    'nav',
-    'section',
-    'span',
-    'ul',
-    'li',
   ]),
-  htmlAttributes: PropTypes.shape({
-    id: PropTypes.string,
-    className: PropTypes.string,
-    style: PropTypes.shape({}),
-  }),
 };
 
 export default Grid;
