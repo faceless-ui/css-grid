@@ -5,25 +5,25 @@ const GridDemo1 = () => (
   <div id="grid-demo-1">
     <pre style={{ marginTop: '0px' }}>
       <code>
-          hCount: 14
+        hCount: 14
         <br />
-          hGap: 10px
+        hGap: 10px
         <br />
-          vGap: 10px
+        vGap: 10px
         <br />
         {'breakpoints: {'}
         <br />
-          &emsp;s: 576
+        &emsp;s: 576
         <br />
-          &emsp;m: 768
+        &emsp;m: 768
         <br />
-          &emsp;l: 992
+        &emsp;l: 992
         <br />
-          &emsp;xl: 1200
+        &emsp;xl: 1200
         <br />
         {'}'}
         <br />
-          scopeCSSTo: #grid-demo-1
+        scopeCSSTo: #grid-demo-1
       </code>
     </pre>
     <div style={{ position: 'relative' }}>
@@ -75,13 +75,13 @@ const GridDemo1 = () => (
             >
               <pre>
                 <code>
-                    hSpan: 4
+                  hSpan: 4
                   <br />
-                    hSpanL: 12
+                  hSpanL: 12
                   <br />
-                    hSpanM: 14
+                  hSpanM: 14
                   <br />
-                    hSpanS: 6
+                  hSpanS: 6
                 </code>
               </pre>
             </Cell>
@@ -105,11 +105,11 @@ const GridDemo1 = () => (
                 >
                   <pre>
                     <code>
-                        hSpan: 4
+                      hSpan: 4
                       <br />
-                        hSpanL: 5
+                      hSpanL: 5
                       <br />
-                        hStart: 4
+                      hStart: 4
                     </code>
                   </pre>
                 </Cell>
@@ -135,11 +135,11 @@ const GridDemo1 = () => (
             >
               <pre>
                 <code>
-                    hSpan: 10
+                  hSpan: 10
                   <br />
-                    hSpanM: 14
+                  hSpanM: 14
                   <br />
-                    vStart: 1 (via inline style)
+                  vStart: 1 (via inline style)
                 </code>
               </pre>
             </Cell>

@@ -5,29 +5,29 @@ const GridDemo3 = () => (
   <div id="grid-demo-3">
     <pre style={{ marginTop: '0px' }}>
       <code>
-          hCount: 8
+        hCount: 8
         <br />
-          hGap: 2vw
+        hGap: 2vw
         <br />
-          vGap: 1rem
+        vGap: 1rem
         <br />
         {'breakpoints: {'}
         <br />
-          &emsp;xs: 375
+        &emsp;xs: 375
         <br />
-          &emsp;s: 600
+        &emsp;s: 600
         <br />
-          &emsp;m: 720
+        &emsp;m: 720
         <br />
-          &emsp;l: 1080
+        &emsp;l: 1080
         <br />
-          &emsp;xl: 1390
+        &emsp;xl: 1390
         <br />
         {'}'}
         <br />
-          scopeCSSTo: #grid-demo-3
+        scopeCSSTo: #grid-demo-3
         <br />
-          classPrefix: abcde
+        classPrefix: abcde
       </code>
     </pre>
     <div style={{ position: 'relative' }}>
@@ -75,9 +75,9 @@ const GridDemo3 = () => (
             >
               <pre>
                 <code>
-                    hSpan: 4
+                  hSpan: 4
                   <br />
-                    hSpanM: 8
+                  hSpanM: 8
                 </code>
               </pre>
             </Cell>

@@ -5,25 +5,25 @@ const GridDemo2 = () => (
   <div id="grid-demo-2">
     <pre style={{ marginTop: '0px' }}>
       <code>
-          hCount: 12
+        hCount: 12
         <br />
-          hGap: columnWidth
+        hGap: columnWidth
         <br />
-          vGap: 10px
+        vGap: 10px
         <br />
         {'breakpoints: {'}
         <br />
-          &emsp;s: 576
+        &emsp;s: 576
         <br />
-          &emsp;m: 768
+        &emsp;m: 768
         <br />
-          &emsp;l: 992
+        &emsp;l: 992
         <br />
-          &emsp;xl: 1200
+        &emsp;xl: 1200
         <br />
         {'}'}
         <br />
-          scopeCSSTo: #grid-12-col-demo
+        scopeCSSTo: #grid-12-col-demo
       </code>
     </pre>
     <div style={{ position: 'relative' }}>
@@ -53,15 +53,15 @@ const GridDemo2 = () => (
             >
               <pre>
                 <code>
-                    hSpan: 6
+                  hSpan: 6
                   <br />
-                    hSpanL: 5
+                  hSpanL: 5
                   <br />
-                    hSpanM: 4
+                  hSpanM: 4
                   <br />
-                    hSpanS: 10
+                  hSpanS: 10
                   <br />
-                    hSpanXS: 12
+                  hSpanXS: 12
                 </code>
               </pre>
             </Cell>
@@ -75,15 +75,15 @@ const GridDemo2 = () => (
             >
               <pre>
                 <code>
-                    hSpan: 6
+                  hSpan: 6
                   <br />
-                    hSpanL: 5
+                  hSpanL: 5
                   <br />
-                    hSpanM: 4
+                  hSpanM: 4
                   <br />
-                    hSpanS: 10
+                  hSpanS: 10
                   <br />
-                    hSpanXS: 12
+                  hSpanXS: 12
                 </code>
               </pre>
             </Cell>
@@ -103,13 +103,13 @@ const GridDemo2 = () => (
             >
               <pre>
                 <code>
-                    hSpan: 2
+                  hSpan: 2
                   <br />
-                    hSpanM: 3
+                  hSpanM: 3
                   <br />
-                    hStart: 2
+                  hStart: 2
                   <br />
-                    hStartS: 11
+                  hStartS: 11
                 </code>
               </pre>
             </Cell>
