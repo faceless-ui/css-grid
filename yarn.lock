@@ -1112,14 +1112,12 @@
     object.assign "^4.1.0"
     object.entries "^1.1.1"
 
-"@trbl/react-html-element@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@trbl/react-html-element/-/react-html-element-1.0.1.tgz#d8936ad47f64b91257a331789eaf73c324182045"
-  integrity sha512-I6qU3n9fxLS1TRgF0lQuYA+c6GEcOFNFzyTxy1Voz0B9JsIIFB/1Ky+H/rADfDfRgKSVxoZ0fLAN0zqoE/YwKA==
+"@trbl/react-html-element@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@trbl/react-html-element/-/react-html-element-1.0.3.tgz#5ebd8ff70763b8f49c7a2e5da9abf1e6a7530c17"
+  integrity sha512-RxESgsj4Sg7czeB3HzLqBw11wWLuXpy7/S0WyHpOIviw1JlxOK1HCEEMHLHgwwkLChmrESIxEVqzdeZq3VOp8w==
   dependencies:
     prop-types "^15.7.2"
-    react "^16.12.0"
-    react-dom "^16.12.0"
 
 "@types/babel__core@^7.1.0":
   version "7.1.3"
