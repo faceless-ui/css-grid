@@ -4,13 +4,15 @@
 
 # React CSS Grid
 
-A grid for React projects, based on [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/).
+Highlights
 
 ## Quick Start
 
 ### Installation
 
 ```bash
+$ npm i @trbl/react-css-grid
+$ # or
 $ yarn add @trbl/react-css-grid
 ```
 
@@ -20,65 +22,62 @@ $ yarn add @trbl/react-css-grid
   import React from 'react';
   import { GridProvider, Grid, Cell } from '@trbl/react-css-grid';
 
-  const App = () => {
-    return (
-      <GridProvider
-        hCount={12}
-        hGap="columnWidth"
-        vGap="10px"
-        breakpoints={{
-          xs: 350,
-          s: 576,
-          m: 768,
-          l: 992,
-          xl: 1200,
-        }}
-      >
-        <Grid>
-          <Cell hSpan={6}>
-            ...
-          </Cell>
-          <Cell
-            hSpan={10}
-            hStart={2}
-            hSpanL={12}
-            hStartL={1}
-            hSpanS={6}
-          >
-            <Grid>
-              <Cell
-                hSpan={5}
-                hSpanL={6}
-              >
-                ...
-              </Cell>
-              <Cell
-                hSpan={5}
-                hSpanL={6}
-              >
-                ...
-              </Cell>
-            </Grid>
-          </Cell>
-        </Grid>
-      </GridProvider>
-    )
-  }
+  const App = () => (
+    <GridProvider
+      hCount={12}
+      hGap="columnWidth"
+      vGap="10px"
+      breakpoints={{
+        xs: 350,
+        s: 576,
+        m: 768,
+        l: 992,
+        xl: 1200,
+      }}
+    >
+      <Grid>
+        <Cell hSpan={6}>
+          ...
+        </Cell>
+        <Cell
+          hSpan={10}
+          hStart={2}
+          hSpanL={12}
+          hStartL={1}
+          hSpanS={6}
+        >
+          <Grid>
+            <Cell
+              hSpan={5}
+              hSpanL={6}
+            >
+              ...
+            </Cell>
+            <Cell
+              hSpan={5}
+              hSpanL={6}
+            >
+              ...
+            </Cell>
+          </Grid>
+        </Cell>
+      </Grid>
+    </GridProvider>
+  )
 ```
+
+For working examples, see the [demo app](./demo/App.demo.js).
 
 ## Demo
 
-To demo locally, clone the repo and
-
 ```bash
+$ git clone git@github.com:trouble/react-css-grid.git
 $ yarn
 $ yarn dev
 $ open http://localhost:3000
 ```
 
-## Documentation
-
-All available props can be found via the references below:
+## API
 
   - [Cell](./src/Cell/README.md)
   - [Grid](./src/Grid/README.md)

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import minifyCssString from 'minify-css-string';
 import generateGridStyles from './generateGridStyles';
 import generateCellStyles from './generateCellStyles';
 
@@ -20,7 +19,7 @@ const GlobalStyles = (props) => {
   const styles = gridStyles.concat(cellStyles);
 
   return (
-    <style dangerouslySetInnerHTML={{ __html: minifyCSS ? minifyCssString(styles) : styles }} />
+    <style dangerouslySetInnerHTML={{ __html: minifyCSS ? styles.replace(/\n/g, '').replace(/\s\s+/g, ' ') : styles }} />
   );
 };
 
