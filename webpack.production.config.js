@@ -20,7 +20,7 @@ module.exports = [{
     ],
   },
   externals: {
-    '@trbl/react-html-element': '@trbl/react-html-element',
+    '@faceless-ui/html-element': '@faceless-ui/html-element',
     'prop-types': 'prop-types',
     react: 'react',
     'react-dom': 'react-dom',

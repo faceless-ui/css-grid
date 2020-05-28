@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HTMLElement from '@trbl/react-html-element';
+import HTMLElement from '@faceless-ui/html-element';
 import GridContext from '../GridProvider/context';
 
 const Grid = (props) => {

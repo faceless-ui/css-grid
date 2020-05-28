@@ -1,8 +1,8 @@
 {
-  "name": "@trbl/react-css-grid",
+  "name": "@faceless-ui/css-grid",
   "version": "0.0.5",
   "main": "dist/build.bundle.js",
-  "repository": "git@github.com:trouble/react-css-grid.git",
+  "repository": "git@github.com:faceless-ui/css-grid.git",
   "description": "A grid for React projects, based on CSS Grid Layout.",
   "author": "<dev@trbl.design>",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "react-dom": "^16.8.0"
   },
   "dependencies": {
-    "@trbl/react-html-element": "^1.0.3",
+    "@faceless-ui/html-element": "^1.0.3",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
