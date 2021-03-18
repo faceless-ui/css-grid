@@ -1,6 +1,6 @@
 {
   "name": "@faceless-ui/css-grid",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "main": "dist/build.bundle.js",
   "repository": "git@github.com:faceless-ui/css-grid.git",
   "description": "A grid for React projects, based on CSS Grid Layout.",
