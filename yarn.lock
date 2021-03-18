@@ -329,10 +329,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@faceless-ui/window-info@^1.2.6":
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/@faceless-ui/window-info/-/window-info-1.2.6.tgz#b0f14117ebe4cd33ae9d08683d708fba8a155555"
-  integrity sha512-Sk8GJ6p80vYKAm+eR/70YeGd187UKZNlMD5pq3hdxZFpw9oWQvZLacLYIhnHhPW8DMGc6VSkxuSNpIv1nquhCw==
+"@faceless-ui/window-info@^1.2.7":
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/@faceless-ui/window-info/-/window-info-1.2.7.tgz#6b25cf8ec352e48edbd1db0c420090dea7dc5a90"
+  integrity sha512-91xfn8H9ej9+XZoSPofpKrEu6cvE5J8w6gJeS4V9aPDQSwnk84/mlcTLohOv3FuxsfNfeSh6LTlb0MCq7EVTAg==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"

@@ -24,6 +24,9 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
+  "dependencies": {
+    "@faceless-ui/window-info": "^1.2.7"
+  },
   "devDependencies": {
     "@trbl/eslint-config": "^2.0.3",
     "@types/jest": "^26.0.20",
@@ -65,8 +68,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "@faceless-ui/window-info": "^1.2.6"
-  }
+  ]
 }
