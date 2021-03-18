@@ -15,46 +15,43 @@
     "ui"
   ],
   "scripts": {
-    "build": "yarn lint && yarn test && webpack --config webpack.production.config.js",
+    "build": "yarn lint && webpack --config webpack.production.config.js",
     "dev": "webpack-dev-server --hot --inline --config webpack.development.config.js",
-    "netlify": "yarn lint && yarn test && webpack --config webpack.netlify.config.js",
     "lint": "eslint .",
     "test": "jest"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
-  },
-  "dependencies": {
-    "@faceless-ui/html-element": "^1.0.3",
-    "prop-types": "^15.7.2"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/preset-react": "^7.8.3",
-    "@trbl/eslint-config": "^1.2.4",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
+    "@trbl/eslint-config": "^2.0.3",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.22",
+    "@types/react": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^6.8.0",
-    "eslint-loader": "^3.0.3",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jest": "^23.6.0",
-    "eslint-plugin-jest-dom": "^2.0.0",
+    "eslint": "^7.16.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-jest-dom": "^3.6.5",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^2.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-webpack-plugin": "^2.4.1",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.1",
     "jest": "^25.1.0",
     "lint-staged": "^10.0.6",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
     "react-hot-loader": "^4.12.19",
-    "webpack": "^4.41.5",
+    "ts-loader": "^8.0.14",
+    "typescript": "^4.1.3",
+    "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
   },
@@ -67,7 +64,9 @@
     }
   },
   "files": [
-    "dist/build.bundle.js",
-    "dist/build.bundle.js.map"
-  ]
+    "dist"
+  ],
+  "dependencies": {
+    "@faceless-ui/window-info": "^1.2.6"
+  }
 }
