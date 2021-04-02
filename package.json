@@ -1,9 +1,10 @@
 {
   "name": "@faceless-ui/css-grid",
   "version": "1.0.0",
-  "main": "dist/build.bundle.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": "git@github.com:faceless-ui/css-grid.git",
-  "description": "A grid for React projects, based on CSS Grid Layout.",
+  "description": "A grid for React projects, based on CSS Grid Layout",
   "author": "<dev@trbl.design>",
   "license": "MIT",
   "keywords": [
@@ -15,7 +16,8 @@
     "ui"
   ],
   "scripts": {
-    "build": "yarn lint && webpack --config webpack.production.config.js",
+    "build": "yarn lint && tsc",
+    "build-demo": "yarn lint && webpack --config webpack.demo.config.js",
     "dev": "webpack-dev-server --hot --inline --config webpack.development.config.js",
     "lint": "eslint .",
     "test": "jest"
