@@ -21,9 +21,9 @@ const SettingsProvider: React.FC<Props> = (props) => {
   const { breakpoints } = useWindowInfo();
 
   let smallestBreakpointReached: 'xl' | 'l' | 'm' | 's' = 'xl';
-  if (breakpoints.l) smallestBreakpointReached = 'l';
-  if (breakpoints.m) smallestBreakpointReached = 'm';
-  if (breakpoints.s) smallestBreakpointReached = 's';
+  if (breakpoints?.l) smallestBreakpointReached = 'l';
+  if (breakpoints?.m) smallestBreakpointReached = 'm';
+  if (breakpoints?.s) smallestBreakpointReached = 's';
 
   const maxColumns = cols[smallestBreakpointReached];
   const activeColumnGap = colGap[smallestBreakpointReached];
