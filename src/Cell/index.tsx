@@ -31,18 +31,18 @@ const Cell: React.FC<Props> = (props) => {
   let colsToSpan = colsAvailable;
 
   if (cols && cols < colsAvailable) colsToSpan = cols;
-  if (colsXL && breakpoints.xl) colsToSpan = colsXL;
-  if (colsL && breakpoints.l) colsToSpan = colsL;
-  if (colsM && breakpoints.m) colsToSpan = colsM;
-  if (colsS && breakpoints.s) colsToSpan = colsS;
+  if (colsXL && breakpoints?.xl) colsToSpan = colsXL;
+  if (colsL && breakpoints?.l) colsToSpan = colsL;
+  if (colsM && breakpoints?.m) colsToSpan = colsM;
+  if (colsS && breakpoints?.s) colsToSpan = colsS;
 
   let colToStart = 0;
 
   if (start) colToStart = start;
-  if (typeof startXL === 'number' && breakpoints.xl) colToStart = startXL;
-  if (typeof startL === 'number' && breakpoints.l) colToStart = startL;
-  if (typeof startM === 'number' && breakpoints.m) colToStart = startM;
-  if (typeof startS === 'number' && breakpoints.s) colToStart = startS;
+  if (typeof startXL === 'number' && breakpoints?.xl) colToStart = startXL;
+  if (typeof startL === 'number' && breakpoints?.l) colToStart = startL;
+  if (typeof startM === 'number' && breakpoints?.m) colToStart = startM;
+  if (typeof startS === 'number' && breakpoints?.s) colToStart = startS;
 
   const gridColumnStart = colToStart || undefined;
 
