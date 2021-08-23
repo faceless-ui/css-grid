@@ -2,7 +2,7 @@ import React from 'react';
 import { Columns } from '../Settings/types';
 
 export interface ICell {
-  cols: Columns
+  cols?: Columns
 }
 export interface Props {
   children?: React.ReactNode
