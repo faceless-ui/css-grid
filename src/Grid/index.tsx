@@ -1,57 +1,50 @@
 import React, { useContext, createContext } from 'react';
 import { useCell } from '../Cell';
 import { useSettings } from '../Settings';
-import defaults from '../defaults';
 import { IGrid, Props } from './types';
 
 const Context = createContext<IGrid>({
-  cols: defaults.cols,
-  rows: defaults.rows,
+  cols: {
+    s: 0,
+    m: 0,
+    l: 0,
+    xl: 0,
+  },
 });
 
 export const useGrid = (): IGrid => useContext(Context);
 
 const Grid: React.FC<Props> = (props) => {
-  const {
-    children,
-    className,
-    style,
-    htmlElement = 'div',
-  } = props;
-
+  const { children, className, style } = props;
   const containingCell = useCell();
   const settings = useSettings();
 
-  const { rowGap } = settings;
-  let { colGap } = settings;
-
-  const columns = containingCell?.cols || settings.cols;
-
-  if (colGap === 'columnWidth') {
-    colGap = `calc(100% * ( 1 / (${columns} * 2)))`;
-  }
+  const { classPrefix } = settings;
 
   const value: IGrid = {
-    cols: columns,
-    rows: 1,
+    cols: {
+      xl: containingCell?.cols.xl || settings.cols.xl,
+      l: containingCell?.cols.l || settings.cols.l,
+      m: containingCell?.cols.m || settings.cols.m,
+      s: containingCell?.cols.s || settings.cols.s,
+    },
   };
-
-  const Tag = htmlElement as React.ElementType;
 
   return (
     <Context.Provider value={value}>
-      <Tag
-        className={className}
-        style={{
-          ...style || {},
-          display: 'grid',
-          columnGap: colGap,
-          rowGap,
-          gridTemplateColumns: `repeat(${columns}, 1fr)`,
-        }}
+      <div
+        className={[
+          className,
+          `${classPrefix}__grid`,
+          `${classPrefix}__grid--xl-cols-${value.cols.xl}`,
+          `${classPrefix}__grid--l-cols-${value.cols.l}`,
+          `${classPrefix}__grid--m-cols-${value.cols.m}`,
+          `${classPrefix}__grid--s-cols-${value.cols.s}`,
+        ].filter(Boolean).join(' ')}
+        style={style}
       >
         {children}
-      </Tag>
+      </div>
     </Context.Provider>
   );
 };

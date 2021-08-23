@@ -1,19 +1,9 @@
 import React from 'react';
+import { Columns } from '../Settings/types';
 
 export interface ICell {
-  cols?: number
-  colsS?: number
-  colsM?: number
-  colsL?: number
-  colsXL?: number
-  start?: number
-  startS?: number
-  startM?: number
-  startL?: number
-  startXL?: number
-  rows?: number
+  cols: Columns
 }
-
 export interface Props {
   children?: React.ReactNode
   cols?: number
@@ -28,6 +18,5 @@ export interface Props {
   startL?: number
   startXL?: number
   className?: string
-  style?: React.CSSProperties,
-  htmlElement?: React.ElementType
+  style?: React.CSSProperties
 }

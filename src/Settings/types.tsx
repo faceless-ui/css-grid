@@ -1,17 +1,9 @@
-export interface Settings {
-  colGap: string,
-  rowGap: string,
-  cols: number,
-  smallestBreakpointReached?: 'xl' | 'l' | 'm' | 's',
-}
-
 export interface Columns {
   s: number,
   m: number,
   l: number,
   xl: number,
 }
-
 export interface Gaps {
   s: string,
   m: string,
@@ -19,9 +11,23 @@ export interface Gaps {
   xl: string,
 }
 
-export interface Props {
-  children: React.ReactNode,
-  cols: Columns,
+export type Breakpoints = {
+  s: number,
+  m: number,
+  l: number,
+}
+export interface Settings {
   colGap: Gaps,
   rowGap: Gaps,
+  cols: Columns,
+  smallestBreakpointReached?: 'xl' | 'l' | 'm' | 's',
+  breakpoints: Breakpoints,
+  classPrefix: string
+}
+export interface Props {
+  cols?: Columns,
+  colGap?: Gaps,
+  rowGap?: Gaps,
+  classPrefix: string,
+  breakpoints: Breakpoints
 }

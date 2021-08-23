@@ -1,13 +1,10 @@
 import React from 'react';
+import { Columns } from '../Settings/types';
 
 export interface IGrid {
-  cols: number,
-  rows: number,
+  cols: Columns,
 }
-
 export interface Props {
-  children: React.ReactNode
   className?: string
-  style?: React.CSSProperties,
-  htmlElement?: React.ElementType
+  style?: React.CSSProperties
 }

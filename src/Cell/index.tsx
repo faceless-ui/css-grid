@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from 'react';
-import { useWindowInfo } from '@faceless-ui/window-info';
 import { useGrid } from '../Grid';
+import { useSettings } from '../Settings';
 import { ICell, Props } from './types';
 
 const Context = createContext<ICell | null>(null);
@@ -14,7 +14,6 @@ const Cell: React.FC<Props> = (props) => {
     colsM,
     colsL,
     colsXL,
-    rows = 1,
     start,
     startS,
     startM,
@@ -22,46 +21,45 @@ const Cell: React.FC<Props> = (props) => {
     startXL,
     className,
     style,
-    htmlElement = 'div',
   } = props;
 
   const { cols: colsAvailable } = useGrid();
-  const { breakpoints } = useWindowInfo();
+  const { classPrefix, cols: colSettings } = useSettings();
 
-  let colsToSpan = colsAvailable;
+  const colsToSpan = {
+    s: colsS || colsM || colsL || cols || colsXL || colsAvailable.s,
+    m: colsM || colsL || cols || colsXL || colsAvailable.m,
+    l: colsL || cols || colsXL || colsAvailable.l,
+    xl: cols || colsXL || colsAvailable.xl,
+  };
 
-  if (cols && cols < colsAvailable) colsToSpan = cols;
-  if (colsXL && breakpoints?.xl) colsToSpan = colsXL;
-  if (colsL && breakpoints?.l) colsToSpan = colsL;
-  if (colsM && breakpoints?.m) colsToSpan = colsM;
-  if (colsS && breakpoints?.s) colsToSpan = colsS;
-
-  let colToStart = 0;
-
-  if (start) colToStart = start;
-  if (typeof startXL === 'number' && breakpoints?.xl) colToStart = startXL;
-  if (typeof startL === 'number' && breakpoints?.l) colToStart = startL;
-  if (typeof startM === 'number' && breakpoints?.m) colToStart = startM;
-  if (typeof startS === 'number' && breakpoints?.s) colToStart = startS;
-
-  const gridColumnStart = colToStart || undefined;
-
-  const Tag = htmlElement as React.ElementType;
+  if (colsToSpan.l > colSettings.l) colsToSpan.l = colSettings.l;
+  if (colsToSpan.m > colSettings.m) colsToSpan.m = colSettings.m;
+  if (colsToSpan.s > colSettings.s) colsToSpan.s = colSettings.s;
 
   return (
-    <Tag
-      className={className}
-      style={{
-        ...style || {},
-        minWidth: 0,
-        gridColumnStart,
-        gridColumnEnd: `span ${colsToSpan}`,
-      }}
+    <div
+      className={[
+        className,
+        `${classPrefix}__cell`,
+        (start || startXL) && `${classPrefix}__cell--xl-col-start-${start || startXL}`,
+        startL && `${classPrefix}__cell--l-col-start-${startL}`,
+        startM && `${classPrefix}__cell--m-col-start-${startM}`,
+        startS && `${classPrefix}__cell--s-col-start-${startS}`,
+        `${classPrefix}__cell--xl-col-end-${cols || colsXL || colsAvailable.xl}`,
+        `${classPrefix}__cell--l-col-end-${colsToSpan.l}`,
+        `${classPrefix}__cell--m-col-end-${colsToSpan.m}`,
+        `${classPrefix}__cell--s-col-end-${colsToSpan.s}`,
+      ].filter(Boolean).join(' ')}
+      style={style}
     >
-      <Context.Provider value={{ cols: colsToSpan, rows }}>
+      <Context.Provider value={{
+        cols: colsToSpan,
+      }}
+      >
         {children}
       </Context.Provider>
-    </Tag>
+    </div>
   );
 };
 
