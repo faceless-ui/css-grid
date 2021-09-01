@@ -15,7 +15,15 @@ const Context = createContext<IGrid>({
 export const useGrid = (): IGrid => useContext(Context);
 
 const Grid: React.FC<Props> = (props) => {
-  const { children, className, style } = props;
+  const {
+    id,
+    children,
+    className,
+    style,
+    htmlAttributes = {},
+    htmlElement = 'div',
+  } = props;
+
   const containingCell = useCell();
   const settings = useSettings();
 
@@ -30,9 +38,12 @@ const Grid: React.FC<Props> = (props) => {
     },
   };
 
+  const Tag = htmlElement as React.ElementType;
+
   return (
     <Context.Provider value={value}>
-      <div
+      <Tag
+        id={id}
         className={[
           className,
           `${classPrefix}__grid`,
@@ -42,9 +53,10 @@ const Grid: React.FC<Props> = (props) => {
           `${classPrefix}__grid--s-cols-${value.cols.s}`,
         ].filter(Boolean).join(' ')}
         style={style}
+        {...htmlAttributes}
       >
         {children}
-      </div>
+      </Tag>
     </Context.Provider>
   );
 };

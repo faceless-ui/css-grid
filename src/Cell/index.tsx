@@ -8,6 +8,7 @@ export const useCell = (): ICell | null => useContext(Context);
 
 const Cell: React.FC<Props> = (props) => {
   const {
+    id,
     children,
     cols,
     colsS,
@@ -21,6 +22,8 @@ const Cell: React.FC<Props> = (props) => {
     startXL,
     className,
     style,
+    htmlElement = 'div',
+    htmlAttributes = {},
   } = props;
 
   const { cols: colsAvailable } = useGrid();
@@ -37,8 +40,11 @@ const Cell: React.FC<Props> = (props) => {
   if (colsToSpan.m > colSettings.m) colsToSpan.m = colSettings.m;
   if (colsToSpan.s > colSettings.s) colsToSpan.s = colSettings.s;
 
+  const Tag = htmlElement as React.ElementType;
+
   return (
-    <div
+    <Tag
+      id={id}
       className={[
         className,
         `${classPrefix}__cell`,
@@ -52,14 +58,16 @@ const Cell: React.FC<Props> = (props) => {
         `${classPrefix}__cell--s-col-end-${colsToSpan.s}`,
       ].filter(Boolean).join(' ')}
       style={style}
+      {...htmlAttributes}
     >
-      <Context.Provider value={{
-        cols: colsToSpan,
-      }}
+      <Context.Provider
+        value={{
+          cols: colsToSpan,
+        }}
       >
         {children}
       </Context.Provider>
-    </div>
+    </Tag>
   );
 };
 
