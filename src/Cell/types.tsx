@@ -23,4 +23,5 @@ export interface Props {
   htmlAttributes?: {
     [key: string]: unknown
   },
+  ref?: React.Ref<HTMLElement>
 }

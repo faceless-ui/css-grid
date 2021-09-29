@@ -1,4 +1,8 @@
-import React, { createContext, useContext } from 'react';
+import React, {
+  createContext,
+  forwardRef,
+  useContext,
+} from 'react';
 import { useGrid } from '../Grid';
 import { useSettings } from '../Settings';
 import { ICell, Props } from './types';
@@ -6,7 +10,7 @@ import { ICell, Props } from './types';
 const Context = createContext<ICell | null>(null);
 export const useCell = (): ICell | null => useContext(Context);
 
-const Cell: React.FC<Props> = (props) => {
+const Cell: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
   const {
     id,
     children,
@@ -44,6 +48,7 @@ const Cell: React.FC<Props> = (props) => {
 
   return (
     <Tag
+      ref={ref}
       id={id}
       className={[
         className,
@@ -69,6 +74,6 @@ const Cell: React.FC<Props> = (props) => {
       </Context.Provider>
     </Tag>
   );
-};
+});
 
 export default Cell;
