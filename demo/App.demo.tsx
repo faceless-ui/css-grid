@@ -13,35 +13,90 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <GridProvider
-      cols={{
-        s: 12,
-        m: 12,
-        l: 12,
-        xl: 12,
-      }}
-      colGap={{
-        s: '10px',
-        m: '10px',
-        l: '10px',
-        xl: '10px',
-      }}
-      rowGap={{
-        s: '10px',
-        m: '10px',
-        l: '10px',
-        xl: '10px',
-      }}
-    >
-      <Grid ref={gridRef}>
-        <Cell
-          cols={12}
-          ref={cellRef}
+    <div>
+      <pre>
+        <code>
+          Cols:
+          <br />
+          s: 8
+          <br />
+          m: 8
+          <br />
+          l: columnWidth
+          <br />
+          xl: columnWidth
+        </code>
+      </pre>
+      <GridProvider
+        cols={{
+          s: 8,
+          m: 8,
+          l: 12,
+          xl: 12,
+        }}
+        colGap={{
+          s: '10px',
+          m: '10px',
+          l: 'columnWidth',
+          xl: 'columnWidth',
+        }}
+        rowGap={{
+          s: '10px',
+          m: '10px',
+          l: '10px',
+          xl: '10px',
+        }}
+      >
+        <Grid
+          ref={gridRef}
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.05)',
+            padding: '50px 0',
+          }}
         >
-          Hello, world!
-        </Cell>
-      </Grid>
-    </GridProvider>
+          <Cell
+            cols={12}
+            ref={cellRef}
+            style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.05)',
+              padding: '50px 0',
+            }}
+          >
+            12 Column Cell
+          </Cell>
+          <Cell
+            cols={10}
+            start={2}
+            ref={cellRef}
+            style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.05)',
+              padding: '50px 0',
+            }}
+          >
+            10 Column Cell, Pushed 2 Columns, With A Nested Grid
+            <Grid
+              ref={gridRef}
+              style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                padding: '50px 0',
+              }}
+            >
+              <Cell
+                cols={8}
+                start={2}
+                ref={cellRef}
+                style={{
+                  backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                  padding: '50px 0',
+                }}
+              >
+                Nested 8 Column Cell, Pushed 2 Columns
+              </Cell>
+            </Grid>
+          </Cell>
+        </Grid>
+      </GridProvider>
+    </div>
   );
 };
 

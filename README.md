@@ -4,9 +4,7 @@
 
 # React CSS Grid
 
-Highlights
-
-## Quick Start
+Read the full documentation [here](https://faceless-ui.com/docs/css-grid).
 
 ### Installation
 
@@ -16,9 +14,9 @@ $ # or
 $ yarn add @faceless-ui/css-grid
 ```
 
-### Composition
-
 ## Demo
+
+For working examples, spin up the [demo app](./demo/App.demo.js):
 
 ```bash
 $ git clone git@github.com:faceless-ui/css-grid.git
@@ -26,8 +24,6 @@ $ yarn
 $ yarn dev
 $ open http://localhost:3000
 ```
-
-## API
 
 ## Contribution
 

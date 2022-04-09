@@ -76,4 +76,6 @@ const Cell: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
   );
 });
 
+Cell.displayName = 'Cell';
+
 export default Cell;

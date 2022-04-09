@@ -66,4 +66,6 @@ const Grid: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
   );
 });
 
+Grid.displayName = 'Grid';
+
 export default Grid;
