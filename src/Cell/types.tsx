@@ -24,4 +24,5 @@ export interface Props {
     [key: string]: unknown
   },
   ref?: React.Ref<HTMLElement>
+  children: React.ReactNode
 }

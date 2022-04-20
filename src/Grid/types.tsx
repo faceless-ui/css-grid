@@ -2,8 +2,9 @@ import { CSSProperties, ElementType } from 'react';
 import { Columns } from '../Settings/types';
 
 export interface IGrid {
-  cols?: Columns,
+  cols: Columns
 }
+
 export interface Props {
   id?: string
   className?: string
@@ -13,4 +14,5 @@ export interface Props {
     [key: string]: unknown
   },
   ref?: React.Ref<HTMLElement>
+  children: React.ReactNode
 }

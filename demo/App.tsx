@@ -8,6 +8,7 @@ const App: React.FC = () => {
   const cellRef = useRef(null);
 
   useEffect(() => {
+    // test the forwarded refs
     console.log('gridRef', gridRef);
     console.log('cellRef', cellRef);
   }, []);

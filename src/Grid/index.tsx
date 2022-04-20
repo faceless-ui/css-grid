@@ -35,10 +35,10 @@ const Grid: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
 
   const value: IGrid = {
     cols: {
-      xl: containingCell?.cols.xl || settings.cols.xl,
-      l: containingCell?.cols.l || settings.cols.l,
-      m: containingCell?.cols.m || settings.cols.m,
-      s: containingCell?.cols.s || settings.cols.s,
+      xl: containingCell?.cols?.xl || settings.cols.xl,
+      l: containingCell?.cols?.l || settings.cols.l,
+      m: containingCell?.cols?.m || settings.cols.m,
+      s: containingCell?.cols?.s || settings.cols.s,
     },
   };
 

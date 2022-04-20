@@ -31,7 +31,11 @@ const Cell: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
   } = props;
 
   const { cols: colsAvailable } = useGrid();
-  const { classPrefix, cols: colSettings } = useSettings();
+
+  const {
+    classPrefix,
+    cols: colSettings
+  } = useSettings();
 
   const colsToSpan = {
     s: colsS || colsM || colsL || cols || colsXL || colsAvailable.s,
