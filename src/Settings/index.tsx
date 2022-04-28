@@ -60,13 +60,13 @@ const SettingsProvider: React.FC<Props> = (props) => {
   const mCellEndStyles = cols.m ? Array.from(Array(cols.m).keys()).reduce((style, col) => `${style}.${classPrefix}__cell--m-col-end-${col + 1} { grid-column-end: span ${col + 1}; }`, '') : '';
   const sCellEndStyles = cols.s ? Array.from(Array(cols.s).keys()).reduce((style, col) => `${style}.${classPrefix}__cell--s-col-end-${col + 1} { grid-column-end: span ${col + 1}; }`, '') : '';
 
-  const context = {
+  const context: Settings = {
     classPrefix,
     cols,
     colGap,
     rowGap,
     breakpoints,
-  } as Settings;
+  };
 
   return (
     <Context.Provider
