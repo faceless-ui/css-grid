@@ -31,4 +31,4 @@ $ open http://localhost:3000
 
 ## License
 
-[MIT](https://github.com/faceless-ui/css-grid/blob/master/LICENSE) Copyright (c) TRBL, LLC
+[MIT](https://github.com/faceless-ui/css-grid/blob/master/LICENSE) Copyright (c) Faceless UI

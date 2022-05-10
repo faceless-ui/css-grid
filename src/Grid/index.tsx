@@ -2,10 +2,22 @@ import React, {
   useContext,
   createContext,
   forwardRef,
+  HTMLProps,
 } from 'react';
 import { useCell } from '../Cell';
 import { useSettings } from '../Settings';
-import { IGrid, Props } from './types';
+import { ElementType } from 'react';
+import { Columns } from '../Settings/types';
+
+export interface IGrid {
+  cols: Columns
+}
+
+export interface GridProps extends HTMLProps<HTMLElement> {
+  htmlElement?: ElementType
+  ref?: React.Ref<HTMLElement>
+  children: React.ReactNode
+}
 
 const Context = createContext<IGrid>({
   cols: {
@@ -18,14 +30,12 @@ const Context = createContext<IGrid>({
 
 export const useGrid = (): IGrid => useContext(Context);
 
-const Grid: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
+const Grid: React.FC<GridProps> = forwardRef<HTMLElement, GridProps>((props, ref) => {
   const {
-    id,
     children,
+    htmlElement: Tag = 'div',
     className,
-    style,
-    htmlAttributes = {},
-    htmlElement = 'div',
+    ...rest
   } = props;
 
   const containingCell = useCell();
@@ -42,13 +52,10 @@ const Grid: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
     },
   };
 
-  const Tag = htmlElement as React.ElementType;
-
   return (
     <Context.Provider value={value}>
       <Tag
         ref={ref}
-        id={id}
         className={[
           className,
           `${classPrefix}__grid`,
@@ -57,8 +64,7 @@ const Grid: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
           `${classPrefix}__grid--m-cols-${value.cols.m}`,
           `${classPrefix}__grid--s-cols-${value.cols.s}`,
         ].filter(Boolean).join(' ')}
-        style={style}
-        {...htmlAttributes}
+        {...rest}
       >
         {children}
       </Tag>

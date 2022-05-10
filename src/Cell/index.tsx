@@ -1,18 +1,41 @@
 import React, {
   createContext,
   forwardRef,
+  HTMLProps,
   useContext,
 } from 'react';
 import { useGrid } from '../Grid';
 import { useSettings } from '../Settings';
-import { ICell, Props } from './types';
+import { ElementType } from 'react';
+import { Columns } from '../Settings/types';
+
+export interface ICell {
+  cols?: Columns
+}
+
+export interface CellProps extends HTMLProps<HTMLElement> {
+  cols?: number
+  colsS?: number
+  colsM?: number
+  colsL?: number
+  colsXL?: number
+  rows?: number
+  start?: number
+  startS?: number
+  startM?: number
+  startL?: number
+  startXL?: number
+  htmlElement?: ElementType
+  ref?: React.Ref<HTMLElement>
+  children: React.ReactNode
+}
 
 const Context = createContext<ICell | null>(null);
+
 export const useCell = (): ICell | null => useContext(Context);
 
-const Cell: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
+const Cell: React.FC<CellProps> = forwardRef<HTMLElement, CellProps>((props, ref) => {
   const {
-    id,
     children,
     cols,
     colsS,
@@ -24,10 +47,9 @@ const Cell: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
     startM,
     startL,
     startXL,
+    htmlElement: Tag = 'div',
     className,
-    style,
-    htmlElement = 'div',
-    htmlAttributes = {},
+    ...rest
   } = props;
 
   const { cols: colsAvailable } = useGrid();
@@ -48,12 +70,9 @@ const Cell: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
   if (colsToSpan.m > colSettings.m) colsToSpan.m = colSettings.m;
   if (colsToSpan.s > colSettings.s) colsToSpan.s = colSettings.s;
 
-  const Tag = htmlElement as React.ElementType;
-
   return (
     <Tag
       ref={ref}
-      id={id}
       className={[
         className,
         `${classPrefix}__cell`,
@@ -66,8 +85,7 @@ const Cell: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
         `${classPrefix}__cell--m-col-end-${colsToSpan.m}`,
         `${classPrefix}__cell--s-col-end-${colsToSpan.s}`,
       ].filter(Boolean).join(' ')}
-      style={style}
-      {...htmlAttributes}
+      {...rest}
     >
       <Context.Provider
         value={{
