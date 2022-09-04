@@ -27,7 +27,7 @@ export interface Settings {
   classPrefix?: string
 }
 
-export interface Props {
+export interface SettingsProviderProps {
   cols?: Columns,
   colGap?: Gaps,
   rowGap?: Gaps,

@@ -1,12 +1,12 @@
 import React, { createContext, useContext } from 'react';
 import getColGap from './getColGap';
-import { Settings, Props } from './types';
+import { Settings, SettingsProviderProps } from './types';
 
 const Context = createContext({} as Settings);
 
 export const useSettings = (): Settings => useContext(Context);
 
-const SettingsProvider: React.FC<Props> = (props) => {
+const SettingsProvider: React.FC<SettingsProviderProps> = (props) => {
   const {
     children,
     cols = {
