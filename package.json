@@ -1,6 +1,6 @@
 {
   "name": "@faceless-ui/css-grid",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "homepage": "https://facelessui.com/docs/css-grid",
