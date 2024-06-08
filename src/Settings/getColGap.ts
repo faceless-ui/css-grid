@@ -1,6 +1,6 @@
-import { Gaps, Columns } from './types';
+import { Gaps, Columns } from './types.js';
 
-const getColGap = (
+export const getColGap = (
   colGap: Gaps,
   cols: Columns,
   size: 'xl' | 'l' | 'm' | 's',
@@ -17,5 +17,3 @@ const getColGap = (
 
   return '0px';
 };
-
-export default getColGap;

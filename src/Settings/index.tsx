@@ -1,14 +1,13 @@
 'use client'
-
 import React, { createContext, useContext } from 'react';
-import getColGap from './getColGap';
-import { Settings, SettingsProviderProps } from './types';
+import { getColGap } from './getColGap.js';
+import { Settings, SettingsProviderProps } from './types.js';
 
 const Context = createContext({} as Settings);
 
 export const useSettings = (): Settings => useContext(Context);
 
-const SettingsProvider: React.FC<SettingsProviderProps> = (props) => {
+export const SettingsProvider: React.FC<SettingsProviderProps> = (props) => {
   const {
     children,
     cols = {
@@ -107,5 +106,3 @@ const SettingsProvider: React.FC<SettingsProviderProps> = (props) => {
     </Context.Provider>
   );
 };
-
-export default SettingsProvider;

@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { GridProvider } from '../src';
-import Cell from '../src/Cell';
-import Grid from '../src/Grid';
+import { GridProvider, Cell, Grid } from '@faceless-ui/css-grid';
 
 const App: React.FC = () => {
   const gridRef = useRef(null);
