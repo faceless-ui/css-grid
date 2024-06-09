@@ -1,15 +1,14 @@
 'use client'
-
 import React, {
   useContext,
   createContext,
   forwardRef,
   HTMLProps,
 } from 'react';
-import { useCell } from '../Cell';
-import { useSettings } from '../Settings';
+import { useCell } from '../Cell/index.js';
+import { useSettings } from '../Settings/index.js';
 import { ElementType } from 'react';
-import { Columns } from '../Settings/types';
+import { Columns } from '../Settings/types.js';
 
 export interface IGrid {
   cols: Columns
@@ -21,7 +20,7 @@ export interface GridProps extends HTMLProps<HTMLElement> {
   children: React.ReactNode
 }
 
-const Context = createContext<IGrid>({
+export const Context = createContext<IGrid>({
   cols: {
     s: 0,
     m: 0,
@@ -32,7 +31,7 @@ const Context = createContext<IGrid>({
 
 export const useGrid = (): IGrid => useContext(Context);
 
-const Grid: React.FC<GridProps> = forwardRef<HTMLElement, GridProps>((props, ref) => {
+export const Grid: React.FC<GridProps> = forwardRef<HTMLElement, GridProps>((props, ref) => {
   const {
     children,
     htmlElement: Tag = 'div',
@@ -75,5 +74,3 @@ const Grid: React.FC<GridProps> = forwardRef<HTMLElement, GridProps>((props, ref
 });
 
 Grid.displayName = 'Grid';
-
-export default Grid;

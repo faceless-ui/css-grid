@@ -1,3 +1,3 @@
-export { IGrid, GridProps } from './Grid';
-export { ICell, CellProps } from './Cell';
-export { SettingsProviderProps, Settings, Breakpoints, Gaps, Columns } from './Settings/types';
+export type { IGrid, GridProps } from './Grid/index.js';
+export type { ICell, CellProps } from './Cell/index.js';
+export type { SettingsProviderProps, Settings, Breakpoints, Gaps, Columns } from './Settings/types.js';

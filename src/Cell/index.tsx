@@ -1,15 +1,14 @@
 'use client'
-
 import React, {
   createContext,
   forwardRef,
   HTMLProps,
   useContext,
 } from 'react';
-import { useGrid } from '../Grid';
-import { useSettings } from '../Settings';
+import { useGrid } from '../Grid/index.js';
+import { useSettings } from '../Settings/index.js';
 import { ElementType } from 'react';
-import { Columns } from '../Settings/types';
+import { Columns } from '../Settings/types.js';
 
 export interface ICell {
   cols?: Columns
@@ -36,7 +35,7 @@ const Context = createContext<ICell | null>(null);
 
 export const useCell = (): ICell | null => useContext(Context);
 
-const Cell: React.FC<CellProps> = forwardRef<HTMLElement, CellProps>((props, ref) => {
+export const Cell: React.FC<CellProps> = forwardRef<HTMLElement, CellProps>((props, ref) => {
   const {
     children,
     cols,
@@ -101,5 +100,3 @@ const Cell: React.FC<CellProps> = forwardRef<HTMLElement, CellProps>((props, ref
 });
 
 Cell.displayName = 'Cell';
-
-export default Cell;
